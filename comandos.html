@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comandos - Samy Bot</title>
+    <meta name="description" content="Explore a lista completa de comandos disponíveis no Samy Bot para Discord.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/samy-logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container navbar-samy">
+            <a href="index.html#home" class="logo-area">
+                <div class="logo-image-wrapper">
+                    <img src="assets/samy-logo.png" alt="Logo Samy Bot" class="logo-img">
+                </div>
+                <span class="logo-text">Samy Bot</span>
+            </a>
+            <ul class="nav-links-samy">
+                <li><a href="index.html#home">Início</a></li>
+                <li><a href="index.html#features">Funcionalidades</a></li>
+                <li><a href="comandos.html">Comandos</a></li>
+                <li><a href="index.html#getting-started">Primeiros Passos</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="changelog.html">Atualizações</a></li>
+                <li><a href="index.html#support">Suporte</a></li>
+                <li><a href="[SEU_LINK_DE_CONVITE_DO_BOT]" class="btn btn-primary nav-cta" target="_blank">Adicionar ao Discord</a></li>
+            </ul>
+            <button class="mobile-menu-button" aria-label="Abrir Menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-title-section section-bg-alt">
+            <div class="container">
+                <h1><i class="fas fa-terminal"></i> Nossos Comandos</h1>
+                <p>Descubra tudo que o Samy Bot pode fazer por você e seu servidor!</p>
+            </div>
+        </section>
+
+        <section id="all-commands" class="commands-section commands-page">
+            <div class="container">
+                <p class="commands-intro">
+                    Abaixo você encontra a lista completa de comandos do Samy Bot, organizados por categoria.
+                    Lembre-se que o prefixo padrão é <strong>s!</strong> (pode ser alterado com <code>s!setprefix</code>).
+                    Use <code>s!help [nome do comando]</code> no Discord para informações detalhadas sobre um comando específico.
+                </p>
+
+                <div class="command-category">
+                    <h4><i class="fas fa-code-branch"></i> Dev <span class="command-count">(4 comandos)</span></h4>
+                    <p class="category-description">Comandos para desenvolvedores e gerenciamento do bot.</p>
+                    <ul class="command-list detailed-command-list">
+                        <li>
+                            <code title="Acessa o painel de desenvolvedor.">dashboard</code>
+                            <span class="command-description">- Acessa o painel de controle do bot (acesso restrito).</span>
+                        </li>
+                        <li>
+                            <code title="Obtém informações do banco de dados de um usuário.">getuserdb</code>
+                            <span class="command-description">- Retorna dados de um usuário específico do banco de dados (acesso restrito).</span>
+                        </li>
+                        <li>
+                            <code title="Lista todos os servidores onde o bot está.">listguilds</code>
+                            <span class="command-description">- Exibe uma lista de todos os servidores que o bot está atualmente (acesso restrito).</span>
+                        </li>
+                        <li>
+                            <code title="Recarrega módulos ou configurações do bot.">reload</code>
+                            <span class="command-description">- Recarrega um módulo ou comando específico do bot (acesso restrito).</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="command-category">
+                    <h4><i class="fas fa-coins"></i> Economia <span class="command-count">(17 comandos)</span></h4>
+                    <p class="category-description">Comandos para interagir com o sistema de economia global do Samy Bot.</p>
+                    <ul class="command-list detailed-command-list">
+                        <li>
+                            <code title="Verifica seu saldo ou de outro usuário.">balance [@usuario?]</code>
+                            <span class="command-description">- Mostra seu saldo atual de moedas ou de outro membro. Ex: <code>s!balance @Fulano</code></span>
+                        </li>
+                        <li>
+                            <code title="Compra um item da loja.">buy [nome do item] [quantidade?]</code>
+                            <span class="command-description">- Compra um item específico da loja. A quantidade é opcional. Ex: <code>s!buy Potion 2</code></span>
+                        </li>
+                        <li>
+                            <code title="Coleta sua renda passiva.">collectincome</code>
+                            <span class="command-description">- Coleta a renda gerada passivamente por seus negócios ou propriedades.</span>
+                        </li>
+                        <li>
+                            <code title="Coleta seus ganhos de investimentos.">collectinvestment</code>
+                            <span class="command-description">- Resgata os lucros dos seus investimentos.</span>
+                        </li>
+                        <li>
+                            <code title="Recebe sua recompensa diária.">daily</code>
+                            <span class="command-description">- Colete sua recompensa diária em moedas e, às vezes, itens bônus!</span>
+                        </li>
+                        <li>
+                            <code title="Verifica ou usa sua energia.">energy</code>
+                            <span class="command-description">- Mostra seu nível de energia, essencial para algumas ações como trabalhar ou minerar.</span>
+                        </li>
+                        <li>
+                            <code title="Evolui um item ou pet.">evolve [nome do item/pet]</code>
+                            <span class="command-description">- Tenta evoluir um item ou mascote do seu inventário para uma forma mais poderosa.</span>
+                        </li>
+                        <li>
+                            <code title="Mostra seu inventário.">inventory</code>
+                            <span class="command-description">- Exibe todos os itens que você possui no seu inventário.</span>
+                        </li>
+                        <li>
+                            <code title="Investe seu dinheiro.">invest [quantia] [tipo de investimento?]</code>
+                            <span class="command-description">- Investe uma quantia de moedas em diferentes tipos de investimento disponíveis.</span>
+                        </li>
+                        <li>
+                            <code title="Gerencia seus investimentos.">investimentos</code>
+                            <span class="command-description">- Mostra seus investimentos ativos e seus status.</span>
+                        </li>
+                        <li>
+                            <code title="Mostra o ranking de jogadores.">leaderboard [tipo de rank?]</code>
+                            <span class="command-description">- Exibe o ranking dos jogadores (ex: mais ricos, mais XP).</span>
+                        </li>
+                        <li>
+                            <code title="Minera recursos ou moedas.">mine</code>
+                            <span class="command-description">- Tenta a sorte minerando para encontrar moedas, gemas ou outros recursos valiosos.</span>
+                        </li>
+                        <li>
+                            <code title="Verifica seu ranking ou de outro usuário.">rank [@usuario?]</code>
+                            <span class="command-description">- Mostra seu nível, XP e posição no ranking de experiência ou de outro usuário.</span>
+                        </li>
+                        <li>
+                            <code title="Vende um item do seu inventário.">sell [nome do item] [quantidade?]</code>
+                            <span class="command-description">- Vende um item do seu inventário para obter moedas.</span>
+                        </li>
+                        <li>
+                            <code title="Abre a loja de itens.">shop [categoria?]</code>
+                            <span class="command-description">- Mostra os itens disponíveis para compra na loja do bot, opcionalmente filtrado por categoria.</span>
+                        </li>
+                        <li>
+                            <code title="Usa um item do seu inventário.">use [nome do item]</code>
+                            <span class="command-description">- Utiliza um item consumível do seu inventário.</span>
+                        </li>
+                        <li>
+                            <code title="Trabalha para ganhar dinheiro.">work</code>
+                            <span class="command-description">- Realiza um trabalho para ganhar uma quantia em moedas.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="command-category">
+                    <h4><i class="fas fa-robot"></i> IA <span class="command-count">(2 comandos)</span></h4>
+                    <p class="category-description">Interaja com a poderosa IA do Samy Bot.</p>
+                    <ul class="command-list detailed-command-list">
+                       <li>
+                           <code title="Faça uma pergunta para a Inteligência Artificial.">ask [pergunta]</code>
+                           <span class="command-description">- Envie uma pergunta e receba uma resposta da IA. Ex: <code>s!ask Qual a capital do Brasil?</code></span>
+                        </li>
+                       <li>
+                           <code title="Converse com a Inteligência Artificial.">chat [mensagem]</code>
+                           <span class="command-description">- Inicie ou continue uma conversa com a IA. Ex: <code>s!chat Olá, como você está?</code></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="command-category">
+                    <h4><i class="fas fa-info-circle"></i> Informações <span class="command-count">(PREENCHER)</span></h4>
+                    <p class="category-description">Comandos para obter diversas informações úteis.</p>
+                    <ul class="command-list detailed-command-list">
+                       <li>
+                           <code title="Verifica a previsão do tempo para uma cidade.">clima [cidade]</code>
+                           <span class="command-description">- Mostra a previsão do tempo atual para a cidade especificada. Ex: <code>s!clima São Paulo</code></span>
+                        </li>
+                       <li>
+                           <code title="Busca informações na Wikipedia.">wikipedia [termo de busca]</code>
+                           <span class="command-description">- Procura um resumo sobre o termo desejado na Wikipedia. Ex: <code>s!wikipedia Discord</code></span>
+                        </li>
+                        </ul>
+                </div>
+                <div class="command-category">
+                    <h4><i class="fas fa-shield-alt"></i> Moderação <span class="command-count">(PREENCHER)</span></h4>
+                    <p class="category-description">Ferramentas para manter seu servidor seguro e organizado.</p>
+                    <ul class="command-list detailed-command-list">
+                       <li>
+                           <code title="Bane um usuário do servidor.">ban @usuário [motivo?]</code>
+                           <span class="command-description">- Bane permanentemente um usuário do servidor. Motivo opcional. Ex: <code>s!ban @Spammer Spam excessivo</code></span>
+                        </li>
+                       <li>
+                           <code title="Mostra o histórico de moderação de um usuário.">history @usuário</code>
+                           <span class="command-description">- Exibe o histórico de punições (avisos, mutes, kicks, bans) de um usuário no servidor.</span>
+                        </li>
+                       <li>
+                           <code title="Expulsa um usuário do servidor.">kick @usuário [motivo?]</code>
+                           <span class="command-description">- Remove um usuário do servidor, mas ele pode voltar. Motivo opcional.</span>
+                        </li>
+                        <li>
+                           <code title="Silencia um usuário no servidor.">mute @usuário [tempo?] [motivo?]</code>
+                           <span class="command-description">- Impede um usuário de enviar mensagens. Tempo e motivo são opcionais. Ex: <code>s!mute @Barulhento 1h Flood</code></span>
+                        </li>
+                       <li>
+                           <code title="Remove o silenciamento de um usuário.">unmute @usuário</code>
+                           <span class="command-description">- Permite que um usuário silenciado volte a enviar mensagens.</span>
+                        </li>
+                       <li>
+                           <code title="Adverte um usuário.">warn @usuário [motivo]</code>
+                           <span class="command-description">- Aplica um aviso formal a um usuário. O motivo é recomendado.</span>
+                        </li>
+                        </ul>
+                </div>
+                <div class="command-category">
+                    <h4><i class="fas fa-star"></i> Utilidades <span class="command-count">(PREENCHER)</span></h4>
+                    <p class="category-description">Comandos úteis para diversas finalidades no dia a dia.</p>
+                    <ul class="command-list detailed-command-list">
+                        <li>
+                            <code title="Mostra o avatar de um usuário.">avatar [@usuário?]</code>
+                            <span class="command-description">- Exibe o seu avatar ou do usuário mencionado em tamanho grande.</span>
+                        </li>
+                        <li>
+                            <code title="Exibe informações sobre o bot.">botinfo</code>
+                            <span class="command-description">- Mostra detalhes sobre o Samy Bot, como versão, desenvolvedor, tempo online e links úteis.</span>
+                        </li>
+                        <li>
+                            <code title="Mostra informações sobre uma cor.">color [código hex, rgb ou nome da cor]</code>
+                            <span class="command-description">- Exibe uma prévia da cor e seus códigos. Ex: <code>s!color #FF0000</code> ou <code>s!color azul</code></span>
+                        </li>
+                        <li>
+                            <code title="Exibe a lista de todos os comandos ou informações de um comando específico.">help [nome do comando?]</code>
+                            <span class="command-description">- Mostra a lista de comandos ou detalhes de um comando específico.</span>
+                        </li>
+                        <li>
+                            <code title="Resolve expressões matemáticas.">math [expressão]</code>
+                            <span class="command-description">- Calcula uma expressão matemática. Ex: <code>s!math (2+2)*5</code></span>
+                        </li>
+                        <li>
+                            <code title="Verifica a latência do bot.">ping</code>
+                            <span class="command-description">- Testa a velocidade de resposta do bot ao servidor Discord.</span>
+                        </li>
+                        <li>
+                            <code title="Cria uma enquete no servidor.">poll "[pergunta]" "[opção1]" "[opção2]" ...</code>
+                            <span class="command-description">- Cria uma enquete com reações para votação.</span>
+                        </li>
+                        <li>
+                            <code title="Exibe informações sobre o servidor atual.">serverinfo</code>
+                            <span class="command-description">- Mostra detalhes sobre o servidor atual (ID, dono, membros, canais, etc.).</span>
+                        </li>
+                        <li>
+                            <code title="Exibe informações sobre um usuário.">userinfo [@usuário?]</code>
+                            <span class="command-description">- Mostra detalhes sobre você ou o usuário mencionado (ID, cargos, data de entrada, etc.).</span>
+                        </li>
+                        </ul>
+                </div>
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html#home">Início</a> |
+                <a href="comandos.html">Comandos</a> |
+                <a href="faq.html">FAQ</a> |
+                <a href="changelog.html">Atualizações</a> |
+                <a href="[URL_DOS_SEUS_TERMOS_DE_SERVICO_NO_GITHUB_PAGES]" target="_blank">Termos de Serviço</a> |
+                <a href="[URL_DA_SUA_POLITICA_DE_PRIVACIDADE_NO_GITHUB_PAGES]" target="_blank">Política de Privacidade</a>
+            </div>
+            <p class="footer-copyright">&copy; <span id="currentYear"></span> Samy Bot & [SEU NOME/NICKNAME DE DESENVOLVEDOR]. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
