@@ -3,212 +3,1023 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samy Bot - Seu Assistente Multifuncional para Discord!</title>
-    <meta name="description" content="Conheça o Samy, o bot para Discord que traz economia, moderação, música, jogos, utilidades e IA para o seu servidor!">
-    <meta name="keywords" content="Samy, Discord Bot, Bot para Discord, Economia, Moderação, Música, Jogos, IA">
-    <link rel="stylesheet" href="style.css">
+    <title>Samy Bot — Seu Assistente Multifuncional para Discord</title>
+    <meta name="description" content="Samy Bot: economia, moderação, IA Gemini, jogos e utilidades avançadas para turbinar seu servidor Discord.">
+    <meta name="keywords" content="Samy, Discord Bot, Bot para Discord, Economia, Moderação, IA, Gemini">
+    <meta property="og:title" content="Samy Bot — Discord Assistant">
+    <meta property="og:description" content="O bot completo para turbinar seu servidor. Economia, moderação, IA e muito mais.">
+    <meta property="og:image" content="assets/samy-logo.png">
     <link rel="icon" href="assets/samy-logo.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ─── TOKENS ──────────────────────────────────────────── */
+        :root {
+            --bg:        #080b14;
+            --surface:   #0d1220;
+            --card:      #111827;
+            --border:    rgba(255,255,255,0.07);
+            --pink:      #f72585;
+            --violet:    #7209b7;
+            --blue:      #4361ee;
+            --cyan:      #4cc9f0;
+            --white:     #f0f4ff;
+            --muted:     #8892a4;
+            --glow-pink: 0 0 40px rgba(247,37,133,0.35);
+            --glow-blue: 0 0 40px rgba(67,97,238,0.35);
+            --radius:    16px;
+            --font:      'Space Grotesk', sans-serif;
+            --mono:      'JetBrains Mono', monospace;
+        }
+
+        /* ─── RESET ───────────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        a { color: inherit; text-decoration: none; }
+        img { display: block; max-width: 100%; }
+        ul { list-style: none; }
+
+        /* ─── NOISE TEXTURE OVERLAY ───────────────────────────── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.4;
+        }
+
+        /* ─── GRID BACKGROUND ─────────────────────────────────── */
+        .grid-bg {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(67,97,238,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(67,97,238,0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ─── NAV ─────────────────────────────────────────────── */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 0 2rem;
+            transition: background 0.4s, backdrop-filter 0.4s;
+        }
+        header.scrolled {
+            background: rgba(8,11,20,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+        .logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid var(--pink);
+            box-shadow: 0 0 12px rgba(247,37,133,0.5);
+        }
+        .logo span { background: linear-gradient(135deg, var(--pink), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .nav-links a {
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--muted);
+            transition: color 0.2s, background 0.2s;
+            font-weight: 500;
+        }
+        .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.05); }
+        .btn-nav {
+            padding: 8px 20px !important;
+            background: linear-gradient(135deg, var(--pink), var(--violet)) !important;
+            color: #fff !important;
+            border-radius: 10px !important;
+            font-weight: 600 !important;
+            transition: opacity 0.2s, transform 0.2s !important;
+            white-space: nowrap;
+        }
+        .btn-nav:hover { opacity: 0.9; transform: translateY(-1px); background: none !important; }
+        .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--white); font-size: 1.4rem; }
+
+        /* ─── HERO ────────────────────────────────────────────── */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            z-index: 1;
+            overflow: hidden;
+        }
+        /* Orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            animation: float 8s ease-in-out infinite;
+        }
+        .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(247,37,133,0.18), transparent 70%); top: -100px; left: -100px; animation-delay: 0s; }
+        .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(67,97,238,0.18), transparent 70%); bottom: -50px; right: -50px; animation-delay: -3s; }
+        .orb-3 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(76,201,240,0.12), transparent 70%); top: 40%; left: 60%; animation-delay: -6s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
+
+        .hero-inner { position: relative; z-index: 2; max-width: 820px; }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border: 1px solid rgba(247,37,133,0.4);
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-family: var(--mono);
+            color: var(--pink);
+            background: rgba(247,37,133,0.08);
+            margin-bottom: 2rem;
+            letter-spacing: 0.04em;
+        }
+        .hero-badge::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--pink); box-shadow: 0 0 8px var(--pink); animation: blink 1.5s ease-in-out infinite; }
+        @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, var(--pink) 0%, var(--cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, var(--pink), var(--violet));
+            color: #fff;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 0 30px rgba(247,37,133,0.3);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(247,37,133,0.5); }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: rgba(255,255,255,0.05);
+            color: var(--white);
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid var(--border);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+        /* Stats bar */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+        .stat { text-align: center; }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--white), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: var(--mono);
+        }
+        .stat-label { font-size: 0.85rem; color: var(--muted); margin-top: 2px; }
+
+        /* ─── SECTION UTILS ───────────────────────────────────── */
+        section { position: relative; z-index: 1; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-label {
+            display: inline-block;
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            color: var(--pink);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+        .section-title span { background: linear-gradient(135deg, var(--pink), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-desc { color: var(--muted); margin-top: 1rem; font-size: 1.05rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+
+        /* ─── FEATURES ────────────────────────────────────────── */
+        .features { padding: 8rem 2rem; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .feature-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(247,37,133,0.05), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-4px); border-color: rgba(247,37,133,0.3); box-shadow: var(--glow-pink); }
+        .feature-card:hover::before { opacity: 1; }
+        .feature-icon-wrap {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+        .feature-card:nth-child(1) .feature-icon-wrap { background: rgba(247,37,133,0.15); }
+        .feature-card:nth-child(2) .feature-icon-wrap { background: rgba(67,97,238,0.15); }
+        .feature-card:nth-child(3) .feature-icon-wrap { background: rgba(76,201,240,0.15); }
+        .feature-card:nth-child(4) .feature-icon-wrap { background: rgba(114,9,183,0.15); }
+        .feature-card:nth-child(5) .feature-icon-wrap { background: rgba(247,37,133,0.15); }
+        .feature-card:nth-child(6) .feature-icon-wrap { background: rgba(67,97,238,0.15); }
+        .feature-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.6rem; }
+        .feature-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+        .feature-tag {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            font-family: var(--mono);
+            padding: 3px 10px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.05);
+            color: var(--muted);
+        }
+
+        /* ─── COMMANDS PREVIEW ────────────────────────────────── */
+        .commands { padding: 8rem 2rem; background: var(--surface); }
+        .commands-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .commands-text .section-header { text-align: left; margin-bottom: 2rem; }
+        .cmd-list { display: flex; flex-direction: column; gap: 0.75rem; }
+        .cmd-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: border-color 0.2s;
+        }
+        .cmd-item:hover { border-color: rgba(67,97,238,0.4); }
+        .cmd-name {
+            font-family: var(--mono);
+            font-size: 0.9rem;
+            color: var(--cyan);
+            min-width: 140px;
+        }
+        .cmd-desc { color: var(--muted); font-size: 0.88rem; }
+        .cmd-cat {
+            margin-left: auto;
+            font-size: 0.72rem;
+            padding: 2px 8px;
+            border-radius: 6px;
+            background: rgba(247,37,133,0.1);
+            color: var(--pink);
+            font-family: var(--mono);
+            white-space: nowrap;
+        }
+        .terminal {
+            background: #060a10;
+            border: 1px solid rgba(67,97,238,0.3);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--glow-blue);
+        }
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: rgba(67,97,238,0.08);
+            border-bottom: 1px solid rgba(67,97,238,0.15);
+        }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot-r { background: #ff5f57; }
+        .dot-y { background: #ffbd2e; }
+        .dot-g { background: #28ca41; }
+        .terminal-title { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin-left: auto; }
+        .terminal-body { padding: 1.5rem; font-family: var(--mono); font-size: 0.85rem; line-height: 1.9; }
+        .t-line { display: flex; gap: 0.5rem; }
+        .t-prompt { color: var(--pink); }
+        .t-cmd { color: var(--cyan); }
+        .t-out { color: #6ee7b7; padding-left: 1rem; }
+        .t-muted { color: var(--muted); padding-left: 1rem; font-size: 0.8rem; }
+        .t-cursor { display: inline-block; width: 8px; height: 14px; background: var(--cyan); animation: blink 1s step-end infinite; vertical-align: middle; }
+
+        /* ─── STEPS / GETTING STARTED ─────────────────────────── */
+        .steps { padding: 8rem 2rem; }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            counter-reset: step;
+        }
+        .step-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .step-card:hover { transform: translateY(-4px); }
+        .step-num {
+            font-size: 4rem;
+            font-weight: 700;
+            font-family: var(--mono);
+            line-height: 1;
+            background: linear-gradient(135deg, rgba(247,37,133,0.15), rgba(67,97,238,0.15));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .step-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .step-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+
+        /* ─── TESTIMONIALS ────────────────────────────────────── */
+        .testimonials { padding: 8rem 2rem; background: var(--surface); }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .testimonial-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1rem; right: 1.5rem;
+            font-size: 5rem;
+            color: rgba(247,37,133,0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        .stars { color: var(--pink); font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 2px; }
+        .testimonial-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem; }
+        .testimonial-author { display: flex; align-items: center; gap: 12px; }
+        .avatar {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--pink), var(--blue));
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 0.9rem;
+        }
+        .author-name { font-weight: 600; font-size: 0.9rem; }
+        .author-role { color: var(--muted); font-size: 0.8rem; }
+
+        /* ─── CTA / SUPPORT ───────────────────────────────────── */
+        .cta {
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-glow {
+            position: absolute;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(247,37,133,0.12), transparent 70%);
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        .cta-inner { position: relative; z-index: 1; }
+        .cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+        .cta p { color: var(--muted); font-size: 1.05rem; margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+        /* ─── DONATE ──────────────────────────────────────────── */
+        .donate {
+            padding: 6rem 2rem;
+            background: var(--surface);
+        }
+        .donate-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .donate-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--pink), var(--cyan));
+        }
+        .donate-card h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.75rem; }
+        .donate-card > p { color: var(--muted); margin-bottom: 2rem; }
+        .pix-box {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            color: var(--cyan);
+            cursor: pointer;
+            transition: background 0.2s;
+            position: relative;
+            text-align: left;
+        }
+        .pix-box:hover { background: rgba(76,201,240,0.05); }
+        .pix-label { font-size: 0.72rem; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.08em; }
+        .pix-copy {
+            position: absolute;
+            right: 1rem; top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.75rem;
+            color: var(--muted);
+            font-family: var(--mono);
+        }
+
+        /* ─── FOOTER ──────────────────────────────────────────── */
+        footer {
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.25rem;
+        }
+        .footer-links a {
+            padding: 4px 12px;
+            color: var(--muted);
+            font-size: 0.88rem;
+            border-radius: 6px;
+            transition: color 0.2s, background 0.2s;
+        }
+        .footer-links a:hover { color: var(--white); background: rgba(255,255,255,0.05); }
+        .footer-copy { color: var(--muted); font-size: 0.82rem; }
+        .footer-copy span { color: var(--pink); }
+
+        /* ─── SCROLL REVEAL ───────────────────────────────────── */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ─── MOBILE ──────────────────────────────────────────── */
+        @media (max-width: 768px) {
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: rgba(8,11,20,0.97); backdrop-filter: blur(20px); padding: 1rem; border-bottom: 1px solid var(--border); gap: 0.25rem; }
+            .nav-links.open { display: flex; }
+            .hamburger { display: block; }
+            .commands-wrap { grid-template-columns: 1fr; }
+            .hero-stats { gap: 2rem; }
+        }
+
+        /* ─── MOBILE MENU ─────────────────────────────────────── */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            inset: 72px 0 0 0;
+            background: rgba(8,11,20,0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            padding: 2rem;
+            flex-direction: column;
+            gap: 0.5rem;
+            border-top: 1px solid var(--border);
+        }
+        .mobile-nav.open { display: flex; }
+        .mobile-nav a { padding: 12px 16px; border-radius: 10px; color: var(--muted); font-size: 1rem; font-weight: 500; transition: background 0.2s, color 0.2s; }
+        .mobile-nav a:hover { color: var(--white); background: rgba(255,255,255,0.05); }
+    </style>
 </head>
 <body>
 
-    <header>
-        <nav class="container navbar-samy">
-            <a href="index.html#home" class="logo-area">
-                <div class="logo-image-wrapper">
-                    <img src="assets/samy-logo.png" alt="Logo Samy Bot" class="logo-img">
-                </div>
-                <span class="logo-text">Samy Bot</span>
+<div class="grid-bg"></div>
+
+<!-- ─── HEADER ──────────────────────────────────────────────── -->
+<header id="header">
+    <nav>
+        <a href="#home" class="logo">
+            <img src="assets/samy-logo.png" alt="Samy Bot" onerror="this.style.display='none'">
+            <span>Samy Bot</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#features">Funcionalidades</a></li>
+            <li><a href="#commands">Comandos</a></li>
+            <li><a href="#steps">Primeiros Passos</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="changelog.html">Atualizações</a></li>
+            <li><a href="https://discord.gg/haQPSP4EPR" class="btn-nav" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.102 18.08.114 18.1.132 18.116a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.995a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                Adicionar ao Discord
+            </a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+    </nav>
+</header>
+
+<!-- Mobile Nav -->
+<nav class="mobile-nav" id="mobileNav">
+    <a href="#home" onclick="closeMobile()">Início</a>
+    <a href="#features" onclick="closeMobile()">Funcionalidades</a>
+    <a href="#commands" onclick="closeMobile()">Comandos</a>
+    <a href="#steps" onclick="closeMobile()">Primeiros Passos</a>
+    <a href="faq.html" onclick="closeMobile()">FAQ</a>
+    <a href="changelog.html" onclick="closeMobile()">Atualizações</a>
+    <a href="https://discord.gg/haQPSP4EPR" target="_blank" onclick="closeMobile()" style="background:linear-gradient(135deg,#f72585,#7209b7);color:#fff;margin-top:0.5rem;">Adicionar ao Discord</a>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────────────── -->
+<section id="home" class="hero">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="hero-inner">
+        <div class="hero-badge">v2.0 — Online &amp; Operacional</div>
+
+        <h1>
+            O bot que seu<br>
+            servidor <span class="gradient">merecia.</span>
+        </h1>
+
+        <p>
+            Economia completa, moderação inteligente, IA Gemini integrada,
+            rastreio de encomendas e muito mais — tudo em um único bot.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="https://discord.com/api/oauth2/authorize?client_id=461634842296320000&permissions=8&scope=bot%20applications.commands" class="btn-primary" target="_blank">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.102 18.08.114 18.1.132 18.116a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.995a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                Adicionar Gratuitamente
             </a>
-            <ul class="nav-links-samy">
-                <li><a href="index.html#home">Início</a></li>
-                <li><a href="index.html#features">Funcionalidades</a></li>
-                <li><a href="comandos.html">Comandos</a></li>
-                <li><a href="index.html#getting-started">Primeiros Passos</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="changelog.html">Atualizações</a></li>
-                <li><a href="index.html#support">Suporte</a></li>
-                <li><a href="https://discord.gg/haQPSP4EPR" class="btn btn-primary nav-cta" target="_blank">Adicionar ao Discord</a></li>
-            </ul>
-            <button class="mobile-menu-button" aria-label="Abrir Menu" aria-expanded="false">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-overlay"></div>
-            <div class="container hero-content">
-                <h1>Samy Bot</h1>
-                <h2>Seu assistente multifuncional para turbinar seu servidor Discord!</h2>
-                <p>Economia, moderação, música, jogos, utilidades avançadas e inteligência artificial, tudo em um só lugar.</p>
-                <div class="hero-buttons">
-                    <a href="https://discord.com/api/oauth2/authorize?client_id=461634842296320000&permissions=8&scope=bot%20applications.commands" class="btn btn-primary btn-lg" target="_blank"><i class="fab fa-discord"></i> Adicionar Samy ao seu Servidor</a>
-                    <a href="https://discord.gg/haQPSP4EPR" class="btn btn-secondary btn-lg" target="_blank"><i class="fas fa-life-ring"></i> Entrar no Suporte</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="features" class="features">
-            <div class="container">
-                <h2>Principais Funcionalidades do Samy</h2>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <i class="fas fa-coins feature-icon"></i>
-                        <h3>Economia Completa</h3>
-                        <p>Sistema de saldo, loja, itens, trabalho, mineração, investimentos e muito mais para engajar seus membros.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-shield-alt feature-icon"></i>
-                        <h3>Moderação Avançada</h3>
-                        <p>Comandos de moderação, logs, e em breve automod para manter seu servidor seguro e organizado.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-music feature-icon"></i>
-                        <h3>Música de Alta Qualidade</h3>
-                        <p>Player de música com suporte a YouTube, SoundCloud, filas, letras e comandos interativos.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-gamepad feature-icon"></i>
-                        <h3>Jogos e Entretenimento</h3>
-                        <p>Diversos minijogos e comandos divertidos para interação e descontração da comunidade.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-brain feature-icon"></i>
-                        <h3>Inteligência Artificial</h3>
-                        <p>Interaja com a IA Gemini para perguntas, geração de texto, resumos e muito mais!</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-wrench feature-icon"></i>
-                        <h3>Utilitários Poderosos</h3>
-                        <p>Ferramentas avançadas como lembretes, enquetes customizáveis, tradutor e executor de código.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="getting-started" class="getting-started-section section-bg-alt">
-            <div class="container">
-                <h2><i class="fas fa-rocket"></i> Primeiros Passos com o Samy Bot</h2>
-                <div class="steps-grid">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <i class="fas fa-plus-circle step-icon"></i>
-                        <h3>Adicione ao Servidor</h3>
-                        <p>Clique no botão "Adicionar ao Discord" no topo da página e autorize o Samy no seu servidor.</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <i class="fas fa-question-circle step-icon"></i>
-                        <h3>Conheça o Prefixo</h3>
-                        <p>O prefixo padrão do Samy é <strong>s!</strong>. Você pode alterá-lo com o comando <code>s!setprefix [novo prefixo]</code>.</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <i class="fas fa-book-open step-icon"></i>
-                        <h3>Comando de Ajuda</h3>
-                        <p>Digite <code>s!help</code> no seu servidor para ver a lista de todas as categorias de comandos disponíveis.</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">4</div>
-                        <i class="fas fa-cogs step-icon"></i>
-                        <h3>Explore e Configure</h3>
-                        <p>Visite nossa <a href="comandos.html">página de comandos</a> e <a href="faq.html">FAQ</a> para mais detalhes e explore as funcionalidades!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="commands-preview" class="commands-section">
-            <div class="container">
-                <h2><i class="fas fa-terminal"></i> Uma Prévia dos Nossos Comandos</h2>
-                <p>O Samy Bot possui uma vasta gama de comandos. Explore alguns exemplos abaixo ou veja a lista completa!</p>
-                <div class="command-category">
-                    <h4><i class="fas fa-coins"></i> Economia</h4>
-                    <ul class="command-list">
-                        <li><code title="Verifica seu saldo.">balance</code></li>
-                        <li><code title="Compra um item da loja.">buy</code></li>
-                        <li><code title="Recebe sua recompensa diária.">daily</code></li>
-                        <li><code title="Trabalha para ganhar dinheiro.">work</code></li>
-                    </ul>
-                </div>
-                <div class="command-category">
-                    <h4><i class="fas fa-music"></i> Música</h4>
-                    <ul class="command-list">
-                       <li><code title="Toca uma música ou adiciona à fila.">play</code></li>
-                       <li><code title="Pula a música atual.">skip</code></li>
-                       <li><code title="Mostra a fila de músicas.">queue</code></li>
-                       <li><code title="Para o player de música.">stop</code></li>
-                    </ul>
-                </div>
-                <div class="text-center">
-                     <a href="comandos.html" class="btn btn-primary btn-lg"><i class="fas fa-list-ul"></i> Ver Todos os Comandos</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="testimonials" class="testimonials-section">
-            <div class="container">
-                <h2><i class="fas fa-comments"></i> O Que Dizem Sobre o Samy</h2>
-                <div class="testimonial-grid">
-                    <div class="testimonial-card">
-                        <img src="assets/avatar-placeholder-1.png" alt="Usuário 1" class="testimonial-avatar">
-                        <p>"O Samy Bot transformou meu servidor! O sistema de economia é incrível e super divertido para os membros."</p>
-                        <h4>- Usuário Feliz 1</h4>
-                        <span>Dono do Servidor "Comunidade Gamer"</span>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="assets/avatar-placeholder-2.png" alt="Usuário 2" class="testimonial-avatar">
-                        <p>"A moderação ficou muito mais fácil com o Samy. Além disso, o suporte é rápido e atencioso!"</p>
-                        <h4>- Admin Satisfeito</h4>
-                        <span>Admin do Servidor "Estudantes BR"</span>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="assets/avatar-placeholder-3.png" alt="Usuário 3" class="testimonial-avatar">
-                        <p>"Melhor bot de música que já usei, sem falar nas outras utilidades. Recomendo 100%!"</p>
-                        <h4>- Amante de Música</h4>
-                        <span>Membro do "Music Hub"</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="support" class="support-section section-bg-alt">
-            <div class="container">
-                <h2><i class="fas fa-headset"></i> Precisa de Ajuda ou Quer Fazer Parte?</h2>
-                <p>Nossa comunidade está pronta para te ajudar e adoraríamos ouvir suas sugestões!</p>
-                <a href="https://discord.gg/haQPSP4EPR" class="btn btn-primary btn-lg" target="_blank"><i class="fab fa-discord"></i> Entrar no Servidor de Suporte</a>
-            </div>
-        </section>
-
-        <section id="donate" class="donate-section">
-            <div class="container">
-                <h2><i class="fas fa-heart"></i> Apoie o Samy Bot!</h2>
-                <p>Manter o Samy online e em constante desenvolvimento requer tempo e recursos. Se você gosta do bot e quer ajudar a mantê-lo incrível, considere fazer uma doação voluntária.</p>
-                <div class="donation-methods">
-                    <p><strong>Pix (Chave Aleatória):</strong> <code>[aee28b1c-b5de-41bb-b886-75e5a52cc212]</code></p>
-                    <p><strong>PayPal:</strong> <a href="https://paypal.me/[MANUTENCAO]" target="_blank">Doe via PayPal</a></p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="index.html#home">Início</a> |
-                <a href="comandos.html">Comandos</a> |
-                <a href="faq.html">FAQ</a> |
-                <a href="changelog.html">Atualizações</a> |
-                <a href="https://github.com/carlosvcl/samy-bot-docs/blob/main/TERMOS_DE_SERVICO.md" target="_blank">Termos de Serviço</a> |
-                <a href="https://github.com/carlosvcl/samy-bot-docs/blob/main/POLITICA_DE_PRIVACIDADE.md" target="_blank">Política de Privacidade</a>
-            </div>
-            <p class="footer-copyright">&copy; <span id="currentYear"></span> Samy Bot & CarlosGomes#2263. Todos os direitos reservados.</p>
+            <a href="https://discord.gg/haQPSP4EPR" class="btn-secondary" target="_blank">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                Servidor de Suporte
+            </a>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <div class="hero-stats">
+            <div class="stat">
+                <div class="stat-number" data-count="5000">0</div>
+                <div class="stat-label">Usuários Ativos</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" data-count="120">0</div>
+                <div class="stat-label">Servidores</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" data-count="200">0</div>
+                <div class="stat-label">Comandos Disponíveis</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">99.9%</div>
+                <div class="stat-label">Uptime</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── FEATURES ─────────────────────────────────────────────── -->
+<section id="features" class="features">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-label">// funcionalidades</span>
+            <h2 class="section-title">Tudo que seu servidor <span>precisa</span></h2>
+            <p class="section-desc">Do básico ao avançado. O Samy cresce com o seu servidor.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon-wrap">💰</div>
+                <h3>Economia Completa</h3>
+                <p>Saldo, mineração de cripto, mercado P2P, banco com juros, investimentos, lootboxes e corporações. Um ecossistema econômico real dentro do Discord.</p>
+                <span class="feature-tag">/minerar /banco /leilao</span>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon-wrap">🛡️</div>
+                <h3>Moderação Avançada</h3>
+                <p>Ban em massa, histórico de infrações, mute temporário com expiração automática, logs no canal configurável e painel interativo para admins.</p>
+                <span class="feature-tag">/ban /mute /historico</span>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon-wrap">🤖</div>
+                <h3>Inteligência Artificial</h3>
+                <p>Google Gemini 2.5 Flash integrado diretamente nos comandos. Tradução com detecção automática de idioma, geração de texto e análise de código.</p>
+                <span class="feature-tag">/traduzir /readme</span>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon-wrap">🚚</div>
+                <h3>Rastreio de Encomendas</h3>
+                <p>Monitoramento automático de pacotes com notificações por DM a cada atualização de status. Suporte à API SeuRastreio integrado.</p>
+                <span class="feature-tag">/rastrear /monitorar</span>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon-wrap">💻</div>
+                <h3>Ferramentas de Dev</h3>
+                <p>Execute código em JavaScript, Python, Java e C++ direto do Discord. Conversor de bases, formatador de código, busca em docs e gerador de README.</p>
+                <span class="feature-tag">/run /formatar /docs</span>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon-wrap">🔧</div>
+                <h3>Utilidades Avançadas</h3>
+                <p>Enquetes com barra de progresso ao vivo, lembretes persistentes, câmbio em tempo real, calculadora interativa, clima completo e timestamps do Discord.</p>
+                <span class="feature-tag">/enquete /cambio /clima</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── COMMANDS ─────────────────────────────────────────────── -->
+<section id="commands" class="commands">
+    <div class="container">
+        <div class="commands-wrap">
+            <div class="commands-text">
+                <div class="section-header reveal">
+                    <span class="section-label">// comandos</span>
+                    <h2 class="section-title">Slash commands <span>modernos</span></h2>
+                    <p class="section-desc">Todos os comandos usam a interface nativa do Discord — sem prefixo para memorizar, com autocomplete e validação automática.</p>
+                </div>
+                <div class="cmd-list reveal">
+                    <div class="cmd-item">
+                        <span class="cmd-name">/banco</span>
+                        <span class="cmd-desc">App financeiro completo com cofre, PIX e investimentos</span>
+                        <span class="cmd-cat">economia</span>
+                    </div>
+                    <div class="cmd-item">
+                        <span class="cmd-name">/mercado ver</span>
+                        <span class="cmd-desc">Terminal de criptomoedas com gráficos de 24h</span>
+                        <span class="cmd-cat">economia</span>
+                    </div>
+                    <div class="cmd-item">
+                        <span class="cmd-name">/ban</span>
+                        <span class="cmd-desc">Painel interativo de banimento com modal e logs</span>
+                        <span class="cmd-cat">moderação</span>
+                    </div>
+                    <div class="cmd-item">
+                        <span class="cmd-name">/run</span>
+                        <span class="cmd-desc">Executa código em JS, Python, Java e C++</span>
+                        <span class="cmd-cat">sistemas</span>
+                    </div>
+                    <div class="cmd-item">
+                        <span class="cmd-name">/traduzir</span>
+                        <span class="cmd-desc">Tradução com detecção de idioma via Gemini AI</span>
+                        <span class="cmd-cat">utilidades</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="terminal reveal">
+                <div class="terminal-header">
+                    <span class="dot dot-r"></span>
+                    <span class="dot dot-y"></span>
+                    <span class="dot dot-g"></span>
+                    <span class="terminal-title">samy-bot — terminal</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="t-line"><span class="t-prompt">❯</span><span class="t-cmd">/minerar</span></div>
+                    <div class="t-out">⛏️ Mineração concluída!</div>
+                    <div class="t-muted">+0.00000842 BTC • Sorte: x1.15</div>
+                    <div class="t-muted">🔗 Dual Mining: +1.2500 MATIC</div>
+                    <br>
+                    <div class="t-line"><span class="t-prompt">❯</span><span class="t-cmd">/banco</span></div>
+                    <div class="t-out">🏦 Cofre Suíço: $142,890.00</div>
+                    <div class="t-muted">💳 Cartão Black • Juros: 0.6%/dia</div>
+                    <div class="t-muted">📈 Rendimento hoje: +$856.32</div>
+                    <br>
+                    <div class="t-line"><span class="t-prompt">❯</span><span class="t-cmd">/traduzir idioma:Japonês texto:Olá!</span></div>
+                    <div class="t-out">🌍 Detectado: Português</div>
+                    <div class="t-out">🗣️ Japonês: こんにちは！</div>
+                    <div class="t-muted">Powered by Google Gemini AI</div>
+                    <br>
+                    <div class="t-line"><span class="t-prompt">❯</span><span class="t-cursor"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── STEPS ─────────────────────────────────────────────────── -->
+<section id="steps" class="steps">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-label">// primeiros passos</span>
+            <h2 class="section-title">Em menos de <span>2 minutos</span></h2>
+            <p class="section-desc">Adicionar o Samy ao seu servidor é simples e gratuito.</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card reveal">
+                <span class="step-num">01</span>
+                <h3>Adicione ao Servidor</h3>
+                <p>Clique em "Adicionar Gratuitamente" e authorize o Samy no seu servidor Discord. Requer permissão de Administrador.</p>
+            </div>
+            <div class="step-card reveal">
+                <span class="step-num">02</span>
+                <h3>Configure o Servidor</h3>
+                <p>Use <code style="background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:4px;font-family:var(--mono);font-size:0.85em">/configurar</code> para definir canal de logs, cargo de mute e canais de alertas.</p>
+            </div>
+            <div class="step-card reveal">
+                <span class="step-num">03</span>
+                <h3>Explore os Comandos</h3>
+                <p>Digite <code style="background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:4px;font-family:var(--mono);font-size:0.85em">/help</code> para ver todas as categorias. Use o menu interativo para navegar entre elas.</p>
+            </div>
+            <div class="step-card reveal">
+                <span class="step-num">04</span>
+                <h3>Precisa de Ajuda?</h3>
+                <p>Entre no nosso servidor de suporte. Nossa equipe responde rápido e a comunidade está sempre ativa.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── TESTIMONIALS ──────────────────────────────────────────── -->
+<section class="testimonials">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-label">// depoimentos</span>
+            <h2 class="section-title">O que dizem sobre <span>o Samy</span></h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal">
+                <div class="stars">★★★★★</div>
+                <p>"O sistema de economia transformou completamente o engajamento do meu servidor. Os membros ficam horas minerando e competindo no ranking."</p>
+                <div class="testimonial-author">
+                    <div class="avatar">CG</div>
+                    <div>
+                        <div class="author-name">Carlos G.</div>
+                        <div class="author-role">Dono — Comunidade Tech</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="stars">★★★★★</div>
+                <p>"A moderação ficou muito mais profissional. O histórico de infrações com ID de caso e os logs automáticos salvaram nossa equipe muito trabalho."</p>
+                <div class="testimonial-author">
+                    <div class="avatar">AM</div>
+                    <div>
+                        <div class="author-name">Ana M.</div>
+                        <div class="author-role">Admin — Estudantes BR</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="stars">★★★★★</div>
+                <p>"O /run e o /formatar são demais. Dá pra testar código direto no Discord sem sair do servidor. A integração com a IA Gemini então é perfeita."</p>
+                <div class="testimonial-author">
+                    <div class="avatar">LR</div>
+                    <div>
+                        <div class="author-name">Lucas R.</div>
+                        <div class="author-role">Dev — Servidor de Programação</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── CTA ───────────────────────────────────────────────────── -->
+<section class="cta">
+    <div class="cta-glow"></div>
+    <div class="cta-inner container">
+        <div class="section-label reveal">// pronto para começar?</div>
+        <h2 class="reveal">Adicione o Samy ao seu<br>servidor <span style="background:linear-gradient(135deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">agora mesmo.</span></h2>
+        <p class="reveal">Gratuito. Sem cadastro. Sem complicação.</p>
+        <div class="hero-buttons reveal">
+            <a href="https://discord.com/api/oauth2/authorize?client_id=461634842296320000&permissions=8&scope=bot%20applications.commands" class="btn-primary" target="_blank">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.102 18.08.114 18.1.132 18.116a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.995a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                Adicionar Gratuitamente
+            </a>
+            <a href="https://discord.gg/haQPSP4EPR" class="btn-secondary" target="_blank">Servidor de Suporte</a>
+        </div>
+    </div>
+</section>
+
+<!-- ─── DONATE ────────────────────────────────────────────────── -->
+<section class="donate">
+    <div class="container">
+        <div class="donate-card reveal">
+            <div style="font-size:2rem;margin-bottom:1rem">💖</div>
+            <h2>Apoie o Samy Bot</h2>
+            <p>Manter o bot online 24/7 com todos os recursos tem um custo real. Se o Samy te ajudou, considere uma doação voluntária para manter o projeto vivo e em constante evolução.</p>
+            <div class="pix-box" onclick="copyPix(this)" title="Clique para copiar">
+                <div class="pix-label">Chave Pix (Aleatória)</div>
+                <span id="pixKey">aee28b1c-b5de-41bb-b886-75e5a52cc212</span>
+                <span class="pix-copy" id="pixCopyLabel">clique para copiar</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────────── -->
+<footer>
+    <div class="footer-inner">
+        <a href="#home" class="logo">
+            <span>Samy Bot</span>
+        </a>
+        <div class="footer-links">
+            <a href="#home">Início</a>
+            <a href="comandos.html">Comandos</a>
+            <a href="faq.html">FAQ</a>
+            <a href="changelog.html">Atualizações</a>
+            <a href="https://discord.gg/haQPSP4EPR" target="_blank">Suporte</a>
+            <a href="https://github.com/carlosvcl/samy-bot-docs/blob/main/TERMOS_DE_SERVICO.md" target="_blank">Termos de Serviço</a>
+            <a href="https://github.com/carlosvcl/samy-bot-docs/blob/main/POLITICA_DE_PRIVACIDADE.md" target="_blank">Privacidade</a>
+        </div>
+        <p class="footer-copy">&copy; <span id="year"></span> Samy Bot &amp; <span>CarlosGomes</span>. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<script>
+    // ─── NAV SCROLL ──────────────────────────────────────────────
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // ─── MOBILE MENU ─────────────────────────────────────────────
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+        mobileNav.classList.toggle('open');
+    });
+    function closeMobile() { mobileNav.classList.remove('open'); }
+
+    // ─── YEAR ────────────────────────────────────────────────────
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ─── SCROLL REVEAL ───────────────────────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add('visible'), i * 80);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ─── COUNT UP ANIMATION ──────────────────────────────────────
+    const counters = document.querySelectorAll('[data-count]');
+    const countObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el     = entry.target;
+                const target = parseInt(el.dataset.count);
+                const suffix = target >= 1000 ? '+' : '+';
+                let   start  = 0;
+                const step   = target / 60;
+                const timer  = setInterval(() => {
+                    start += step;
+                    if (start >= target) {
+                        clearInterval(timer);
+                        el.textContent = target.toLocaleString('pt-BR') + suffix;
+                    } else {
+                        el.textContent = Math.floor(start).toLocaleString('pt-BR') + suffix;
+                    }
+                }, 16);
+                countObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(el => countObserver.observe(el));
+
+    // ─── COPY PIX ────────────────────────────────────────────────
+    function copyPix(el) {
+        const key   = document.getElementById('pixKey').textContent;
+        const label = document.getElementById('pixCopyLabel');
+        navigator.clipboard.writeText(key).then(() => {
+            label.textContent = '✓ copiado!';
+            label.style.color = '#4cc9f0';
+            setTimeout(() => {
+                label.textContent = 'clique para copiar';
+                label.style.color = '';
+            }, 2000);
+        });
+    }
+
+    // ─── SMOOTH SCROLL FOR NAV LINKS ─────────────────────────────
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
 </body>
 </html>
