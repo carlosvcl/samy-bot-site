@@ -100,7 +100,7 @@ Ideias para novas funcionalidades, bugs encontrados ou vontade de colaborar? Tod
 
 * **💬 Servidor de Suporte:** [Junte-se aqui](https://discord.gg/haQPSP4EPR)
 * **📧 E-mail:** `samybot25@gmail.com`
-* **👤 Desenvolvedor:** CarlosGomes *(o Discord aposentou o sistema de tags numéricas `#0000` — adicione seu `@usuário` atual aqui se quiser que outras pessoas te encontrem por username)*
+* **👤 Desenvolvedor:** CarlosGomes 
 
 ---
 
