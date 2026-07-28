@@ -9,15 +9,13 @@
 </p>
 
 <p align="center">
-  <a href="INVITE_LINK_AQUI">
+  <a href="https://discord.com/api/oauth2/authorize?client_id=461634842296320000&permissions=8&scope=bot%20applications.commands">
     <img src="https://img.shields.io/badge/Adicione--me%20ao%20seu%20Servidor-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Adicionar Samy Bot ao Discord">
   </a>
-  <a href="SUPPORT_SERVER_AQUI">
+  <a href="https://discord.gg/haQPSP4EPR">
     <img src="https://img.shields.io/badge/Servidor%20de%20Suporte-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Servidor de Suporte do Samy Bot">
   </a>
 </p>
-
-> ⚠️ **Nota de manutenção:** os dois botões acima usam links de espaço reservado (`INVITE_LINK_AQUI` / `SUPPORT_SERVER_AQUI`). Substitua pelos links reais antes de publicar — veja a seção [Pendências antes de publicar](#-pendências-antes-de-publicar) no final deste arquivo.
 
 ---
 
@@ -59,7 +57,7 @@ Todos os comandos usam **Slash Commands** (`/comando`) nativos do Discord, com a
 
 ## 🚀 Comece a Usar o Samy!
 
-1. **Clique para convidar o Samy** usando o botão no topo deste README (ou o link direto, quando publicado).
+1. **[Clique aqui para convidar o Samy](https://discord.com/api/oauth2/authorize?client_id=461634842296320000&permissions=8&scope=bot%20applications.commands)**.
 2. Selecione o servidor ao qual deseja adicioná-lo.
 3. Autorize as permissões necessárias — o Samy avisa no próprio painel (`/devctl`, se você for admin do bot) caso falte alguma permissão importante em um canal específico.
 4. Digite `/help` em qualquer canal para ver todas as categorias e comandos disponíveis.
@@ -68,10 +66,8 @@ Todos os comandos usam **Slash Commands** (`/comando`) nativos do Discord, com a
 
 ## 📜 Documentos Legais
 
-* **[Termos de Serviço (ToS)](LINK_TOS_AQUI)** — regras e diretrizes para o uso do bot Samy.
-* **[Política de Privacidade](LINK_PRIVACIDADE_AQUI)** — como coletamos, usamos e protegemos as informações dos servidores.
-
-> ⚠️ Confira se esses dois links ainda apontam para documentos válidos e atualizados antes de publicar.
+* **[Termos de Serviço (ToS)](https://github.com/carlosvcl/samy-bot-docs/blob/main/TERMOS_DE_SERVICO.md)** — regras e diretrizes para o uso do bot Samy.
+* **[Política de Privacidade](https://github.com/carlosvcl/samy-bot-docs/blob/main/POLITICA_DE_PRIVACIDADE.md)** — como coletamos, usamos e protegemos as informações dos servidores.
 
 Ao adicionar e usar o Samy Bot, você concorda com estes termos e políticas.
 
@@ -82,7 +78,7 @@ Ao adicionar e usar o Samy Bot, você concorda com estes termos e políticas.
 Ideias para novas funcionalidades, bugs encontrados ou vontade de colaborar? Toda contribuição é bem-vinda:
 
 1. **Reportando bugs ou sugerindo funcionalidades**
-   Verifique se já existe uma [Issue](LINK_ISSUES_AQUI) parecida antes de abrir uma nova.
+   Verifique se já existe uma [Issue](https://github.com/carlosvcl/samy-bot/issues) parecida antes de [abrir uma nova](https://github.com/carlosvcl/samy-bot/issues/new/choose).
 2. **Contribuindo com código**
    * Faça um fork deste repositório.
    * Crie uma branch descritiva (`feature/nome-da-feature` ou `fix/nome-do-bug`).
@@ -102,11 +98,13 @@ Ideias para novas funcionalidades, bugs encontrados ou vontade de colaborar? Tod
 
 ## 📞 Contato e Suporte
 
-* **💬 Servidor de Suporte:** [Junte-se aqui](SUPPORT_SERVER_AQUI)
-* **📧 E-mail:** `EMAIL_AQUI`
-* **👤 Desenvolvedor:** `@USERNAME_ATUAL_AQUI`
-
-> ⚠️ O Discord aposentou o sistema antigo de tags numéricas (`Nome#0000`) — use seu `@usuário` atual aqui.
+* **💬 Servidor de Suporte:** [Junte-se aqui](https://discord.gg/haQPSP4EPR)
+* **📧 E-mail:** `samybot25@gmail.com`
+* **👤 Desenvolvedor:** CarlosGomes *(o Discord aposentou o sistema de tags numéricas `#0000` — adicione seu `@usuário` atual aqui se quiser que outras pessoas te encontrem por username)*
 
 ---
 
+## ✅ Pendências antes de publicar
+
+- [ ] Arquivo `samy-banner2.png` — confirme se ainda existe no repositório e representa a versão atual do bot.
+- [ ] Seu `@usuário` atual do Discord na seção de Contato — o formato antigo `CarlosGomes#2263` não é mais usado pelo Discord; adicione seu handle atual se quiser facilitar contato direto.
