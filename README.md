@@ -81,7 +81,7 @@ Ideias para novas funcionalidades, bugs encontrados ou vontade de colaborar? Tod
    Verifique se já existe uma [Issue](https://github.com/carlosvcl/samy-bot/issues) parecida antes de [abrir uma nova](https://github.com/carlosvcl/samy-bot/issues/new/choose).
 2. **Contribuindo com código**
    * Faça um fork deste repositório.
-   * Crie uma branch descritiva (`feature/nome-da-feature` ou `fix/nome-do-bug`).
+   * Crie uma branch descritiva.
    * Commits claros, um por mudança lógica.
    * Abra um Pull Request explicando o que mudou e por quê.
 
@@ -100,11 +100,7 @@ Ideias para novas funcionalidades, bugs encontrados ou vontade de colaborar? Tod
 
 * **💬 Servidor de Suporte:** [Junte-se aqui](https://discord.gg/haQPSP4EPR)
 * **📧 E-mail:** `samybot25@gmail.com`
-* **👤 Desenvolvedor:** CarlosGomes 
+* **👤 Desenvolvedor:** CarlosGomes#2263 
 
 ---
 
-## ✅ Pendências antes de publicar
-
-- [ ] Arquivo `samy-banner2.png` — confirme se ainda existe no repositório e representa a versão atual do bot.
-- [ ] Seu `@usuário` atual do Discord na seção de Contato — o formato antigo `CarlosGomes#2263` não é mais usado pelo Discord; adicione seu handle atual se quiser facilitar contato direto.
