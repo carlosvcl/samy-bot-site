@@ -110,14 +110,3 @@ Ideias para novas funcionalidades, bugs encontrados ou vontade de colaborar? Tod
 
 ---
 
-## ✅ Pendências antes de publicar
-
-Este README foi reescrito para refletir a arquitetura real do bot (Slash Commands, painéis, categorias atuais), mas alguns dados **dependem de você confirmar ou preencher**, porque não é algo que eu tenha como verificar:
-
-- [ ] Link de convite do bot (`INVITE_LINK_AQUI`) — o `client_id` do link antigo pode estar desatualizado.
-- [ ] Link do servidor de suporte (`SUPPORT_SERVER_AQUI`) — convites do Discord expiram.
-- [ ] Links dos Termos de Serviço e Política de Privacidade — confirme se o repositório `samy-bot-docs` ainda existe e está atualizado.
-- [ ] Link de Issues do GitHub (`LINK_ISSUES_AQUI`) — confirme o caminho real do repositório.
-- [ ] E-mail de contato (`EMAIL_AQUI`).
-- [ ] Seu `@usuário` atual do Discord (`USERNAME_ATUAL_AQUI`) — o formato antigo com `#0000` não existe mais.
-- [ ] Arquivo `samy-banner2.png` — confirme se ainda existe no repositório e representa a versão atual do bot.
