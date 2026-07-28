@@ -1,70 +1,77 @@
-# Samy Bot - Seu Assistente Multifuncional para Discord 🤖✨
+# Samy Bot — Seu Assistente Multifuncional para Discord 🤖✨
 
 <p align="center">
   <img src="samy-banner2.png" alt="Banner do Bot Samy" width="750"/>
 </p>
 
 <p align="center">
-  <strong>Samy é um bot de Discord versátil, construído para elevar a experiência do seu servidor com uma rica gama de funcionalidades, desde economia e moderação até entretenimento e integração com IA Gemini!</strong>
+  <strong>Samy é um bot de Discord premium, construído inteiramente com Slash Commands e painéis interativos — economia, moderação, hardware, monitoramento de rede, ferramentas de desenvolvedor e integração com IA Gemini, tudo num só lugar.</strong>
 </p>
 
 <p align="center">
-  <a href="https://discord.com/api/oauth2/authorize?client_id=461634842296320000&permissions=8&scope=bot%20applications.commands">
-    <img src="https://img.shields.io/badge/Adicione--me%20ao%20seu%20Servidor-7289DA?style=for-the-badge&logo=discord&logoColor=white" alt="Adicionar Samy Bot ao Discord">
+  <a href="INVITE_LINK_AQUI">
+    <img src="https://img.shields.io/badge/Adicione--me%20ao%20seu%20Servidor-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Adicionar Samy Bot ao Discord">
   </a>
-  <a href="https://discord.gg/haQPSP4EPR">
-  <img src="https://img.shields.io/badge/Servidor%20de%20Suporte-7289DA?style=for-the-badge&logo=discord&logoColor=white" alt="Servidor de Suporte do Samy Bot">
+  <a href="SUPPORT_SERVER_AQUI">
+    <img src="https://img.shields.io/badge/Servidor%20de%20Suporte-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Servidor de Suporte do Samy Bot">
   </a>
+</p>
+
+> ⚠️ **Nota de manutenção:** os dois botões acima usam links de espaço reservado (`INVITE_LINK_AQUI` / `SUPPORT_SERVER_AQUI`). Substitua pelos links reais antes de publicar — veja a seção [Pendências antes de publicar](#-pendências-antes-de-publicar) no final deste arquivo.
+
 ---
 
 ## 🌟 Sobre o Samy Bot
 
-Samy é um projeto apaixonado de `[Carlos Gomes]`, desenvolvido para ser o companheiro ideal para qualquer comunidade no Discord. Nosso objetivo é oferecer uma experiência completa e intuitiva, com recursos que realmente fazem a diferença no dia a dia do seu servidor.
+Samy é um projeto pessoal de **Carlos Gomes**, construído para ser um assistente completo de servidor — não só um bot de comandos soltos, mas um conjunto de **painéis interativos** que guiam o usuário passo a passo, sem precisar decorar sintaxe.
 
-### ✨ Funcionalidades Incríveis:
+Todos os comandos usam **Slash Commands** (`/comando`) nativos do Discord, com autocomplete, confirmação em ações sensíveis, e suporte a **Português (BR) e Inglês (US)**.
 
-* 💰 **Economia Global Dinâmica:**
-    * Sistema de moedas (`s!daily`, `s!work`, `s!crime`).
-    * Loja de itens personalizáveis (`s!shop`, `s!buy`, `s!sell`).
-    * Investimentos, apostas e ranking de riqueza (`s!invest`, `s!bet`, `s!rank`).
-* 🛡️ **Moderação Abrangente e Eficaz:**
-    * Comandos para banir, expulsar, silenciar e advertir membros (`s!ban`, `s!kick`, `s!mute`).
-    * Sistema de logs detalhados para todas as ações de moderação (`s!logs`).
-    * Configurações de automoderação (anti-spam, anti-link, etc. - *se aplicável*).
-* 🛠️ **Utilidades Práticas para o Dia a Dia:**
-    * Informações de usuário e servidor (`s!userinfo`, `s!serverinfo`).
-    * Exibição de avatares (`s!avatar`).
-    * Ferramentas como calculadora, enquetes, lembretes (`s!calc`, `s!poll`, `s!remindme`).
-* 🎉 **Entretenimento e Interação Comunitária:**
-    * Minijogos interativos (`s!rps`, `s!coinflip`, *outros jogos*).
-    * Comandos divertidos para gerar memes, piadas ou interações sociais.
-* 🧠 **Inteligência Artificial com Gemini:**
-    * Respostas a perguntas complexas (`s!ask [pergunta]`).
-    * Geração de texto criativo, ideias e muito mais.
-    * Recursos de IA para auxiliar e entreter os membros.
-* 🔗 **E muito mais!** Samy está em constante desenvolvimento, com novas funcionalidades e melhorias sendo adicionadas regularmente.
+### ✨ Funcionalidades
+
+* ⚙️ **Configuração Completa do Servidor** (`/configurar`)
+  Painel único com módulos de moderação, sistema de XP, boas-vindas/despedida (com autorole real), tickets, alertas automáticos, sistema de AFK e preferências gerais — tudo em um só lugar, com alterações salvas automaticamente.
+
+* 💰 **Economia Global com Exchange de Criptomoedas** (`/mercado`, `/vender`, `/banco`, `/carteira`, `/trabalhar`, `/loja`, `/leilao`, `/empresa`, e mais)
+  Terminal de trading completo com gráficos de 24h, portfólio com PNL em tempo real, ordens de compra/venda por porcentagem do saldo/posição, e um motor de preços simulado consistente entre todos os comandos.
+
+* 🛡️ **Moderação Robusta** (`/ban`, `/kick`, `/mute`, `/warn`, `/limpar`, `/trancar`, `/lockdown`, `/historico`, e mais)
+  Do dia a dia ao modo pânico: o `/lockdown` tranca todos os canais de texto do servidor de uma vez (preservando o estado exato de canais que já tinham permissões customizadas) para conter raids.
+
+* 🖥️ **Laboratório de Hardware** (`/bench`, `/serverstatus`)
+  Compare qualquer CPU ou GPU do catálogo (dezenas de peças Intel/AMD/NVIDIA), com **análise por Inteligência Artificial** explicando qual é melhor para jogos, produtividade e faixa de preço. O `/serverstatus` monitora em tempo real o status de Discord, GitHub, Steam, Riot Games e outros serviços — incluindo consulta a **qualquer servidor customizado** por IP/domínio.
+
+* 🧰 **Ferramentas do Dia a Dia** (`/qrcode`, `/shorturl`, `/afk`, `/lembrete`, `/enquete`, `/calculadora`, `/cambio`, `/clima`, e mais)
+  O `/afk` conta com aviso por DM (sem floodar o servidor), cooldown anti-spam de menções e painel próprio para gerenciar seu status.
+
+* 🔧 **Painel de Desenvolvedor** (`/devctl`, `/dashboard`)
+  Ferramentas internas restritas aos administradores do bot: monitoramento de sistema, logs de erro centralizados, estatísticas de uso de comandos, suporte remoto a servidores, blacklist, modo de manutenção e muito mais.
+
+* 🧠 **Inteligência Artificial com Google Gemini**
+  Usada para gerar análises comparativas de hardware sob demanda, com cache inteligente para não desperdiçar cota de API.
+
+* 🌍 **Suporte Multilíngue (i18n)**
+  Português (BR) e Inglês (US) configuráveis por servidor, com todos os textos dos painéis principais traduzidos.
+
+> 📦 O Samy está em desenvolvimento contínuo — novos comandos e categorias são adicionados regularmente. Esta lista reflete o estado do projeto no momento desta atualização e não é definitiva.
 
 ---
 
 ## 🚀 Comece a Usar o Samy!
 
-Adicionar o Samy ao seu servidor é fácil e rápido:
-
-1.  **Clique aqui para convidar o Samy:** [![Adicionar Samy Bot ao Discord](https://img.shields.io/badge/Convidar%20Samy%20Bot-7289DA?style=flat-square&logo=discord&logoColor=white)]([https://discord.com/api/oauth2/authorize?client_id=461634842296320000&permissions=8&scope=bot%20applications.commands])
-2.  Selecione o servidor ao qual você deseja adicioná-lo.
-3.  Autorize as permissões necessárias para que o Samy funcione corretamente.
-4.  Pronto! Comece a explorar os comandos.
-
-Para uma lista completa de comandos e como utilizá-los, digite `s!help` em qualquer canal de texto onde o Samy tenha permissão para ler e enviar mensagens.
+1. **Clique para convidar o Samy** usando o botão no topo deste README (ou o link direto, quando publicado).
+2. Selecione o servidor ao qual deseja adicioná-lo.
+3. Autorize as permissões necessárias — o Samy avisa no próprio painel (`/devctl`, se você for admin do bot) caso falte alguma permissão importante em um canal específico.
+4. Digite `/help` em qualquer canal para ver todas as categorias e comandos disponíveis.
 
 ---
 
 ## 📜 Documentos Legais
 
-A sua privacidade e a transparência no uso do Samy são muito importantes para nós. Por favor, revise nossos documentos legais:
+* **[Termos de Serviço (ToS)](LINK_TOS_AQUI)** — regras e diretrizes para o uso do bot Samy.
+* **[Política de Privacidade](LINK_PRIVACIDADE_AQUI)** — como coletamos, usamos e protegemos as informações dos servidores.
 
-* **[Termos de Serviço (ToS)](https://github.com/carlosvcl/samy-bot-docs/blob/main/TERMOS_DE_SERVICO.md):** Regras e diretrizes para o uso do bot Samy.
-* **[Política de Privacidade](https://github.com/carlosvcl/samy-bot-docs/blob/main/POLITICA_DE_PRIVACIDADE.md):** Como coletamos, usamos e protegemos suas informações.
+> ⚠️ Confira se esses dois links ainda apontam para documentos válidos e atualizados antes de publicar.
 
 Ao adicionar e usar o Samy Bot, você concorda com estes termos e políticas.
 
@@ -72,41 +79,45 @@ Ao adicionar e usar o Samy Bot, você concorda com estes termos e políticas.
 
 ## 🤝 Contribuições
 
-Amamos a comunidade e estamos abertos a contribuições! Se você tem ideias para novas funcionalidades, encontrou um bug, ou quer ajudar a melhorar o Samy:
+Ideias para novas funcionalidades, bugs encontrados ou vontade de colaborar? Toda contribuição é bem-vinda:
 
-1.  **Reportando Bugs ou Sugerindo Funcionalidades:**
-    * Verifique se já existe uma [Issue](https://github.com/carlosvcl/samy-bot/issues) similar.
-    * Se não, [crie uma nova Issue](https://github.com/carlosvcl/samy-bot/issues/new/choose), detalhando o problema ou a sugestão.
-2.  **Contribuindo com Código:**
-    * Faça um "Fork" deste repositório.
-    * Crie uma nova "Branch" para sua feature ou correção (`git checkout -b feature/nova-incrivel-feature` ou `fix/correcao-de-bug`).
-    * Faça seus commits seguindo um padrão claro.
-    * Envie um "Pull Request" detalhando suas alterações.
-
-Toda contribuição é bem-vinda e apreciada!
+1. **Reportando bugs ou sugerindo funcionalidades**
+   Verifique se já existe uma [Issue](LINK_ISSUES_AQUI) parecida antes de abrir uma nova.
+2. **Contribuindo com código**
+   * Faça um fork deste repositório.
+   * Crie uma branch descritiva (`feature/nome-da-feature` ou `fix/nome-do-bug`).
+   * Commits claros, um por mudança lógica.
+   * Abra um Pull Request explicando o que mudou e por quê.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-O Samy Bot é construído com as seguintes tecnologias principais:
-
-* **[Node.js](https://nodejs.org/)** (Ambiente de execução JavaScript)
-* **[Discord.js](https://discord.js.org/)** (Biblioteca principal para interação com a API do Discord)
-* **[Google Gemini API](https://ai.google.dev/)** (Para funcionalidades de Inteligência Artificial)
+* **[Node.js](https://nodejs.org/)** — ambiente de execução JavaScript.
+* **[Discord.js](https://discord.js.org/)** — biblioteca principal de interação com a API do Discord.
+* **[MongoDB](https://www.mongodb.com/) / [Mongoose](https://mongoosejs.com/)** — persistência de dados (economia, configuração de servidores, logs, estatísticas).
+* **[Google Gemini API](https://ai.google.dev/)** — funcionalidades de Inteligência Artificial.
 
 ---
 
 ## 📞 Contato e Suporte
 
-Precisa de ajuda ou tem alguma dúvida? Entre em contato conosco:
+* **💬 Servidor de Suporte:** [Junte-se aqui](SUPPORT_SERVER_AQUI)
+* **📧 E-mail:** `EMAIL_AQUI`
+* **👤 Desenvolvedor:** `@USERNAME_ATUAL_AQUI`
 
-* **💬 Servidor de Suporte no Discord:** [Junte-se a Nós!]([https://discord.gg/haQPSP4EPR]) (Canal `#suporte-geral` ou similar)
-* **📧 E-mail:** `samybot25@gmail.com`
-* **👤 Desenvolvedor Principal (Discord Tag):** `CarlosGomes#2263` (*Verifique se a tag está atualizada*)
+> ⚠️ O Discord aposentou o sistema antigo de tags numéricas (`Nome#0000`) — use seu `@usuário` atual aqui.
 
 ---
 
-<p align="center">
-  **Obrigado por escolher e confiar no Samy Bot para sua comunidade! Esperamos que você aproveite!**
-</p>
+## ✅ Pendências antes de publicar
+
+Este README foi reescrito para refletir a arquitetura real do bot (Slash Commands, painéis, categorias atuais), mas alguns dados **dependem de você confirmar ou preencher**, porque não é algo que eu tenha como verificar:
+
+- [ ] Link de convite do bot (`INVITE_LINK_AQUI`) — o `client_id` do link antigo pode estar desatualizado.
+- [ ] Link do servidor de suporte (`SUPPORT_SERVER_AQUI`) — convites do Discord expiram.
+- [ ] Links dos Termos de Serviço e Política de Privacidade — confirme se o repositório `samy-bot-docs` ainda existe e está atualizado.
+- [ ] Link de Issues do GitHub (`LINK_ISSUES_AQUI`) — confirme o caminho real do repositório.
+- [ ] E-mail de contato (`EMAIL_AQUI`).
+- [ ] Seu `@usuário` atual do Discord (`USERNAME_ATUAL_AQUI`) — o formato antigo com `#0000` não existe mais.
+- [ ] Arquivo `samy-banner2.png` — confirme se ainda existe no repositório e representa a versão atual do bot.
