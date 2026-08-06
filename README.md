@@ -59,7 +59,7 @@ A arquitetura foi desenhada para crescer mesmo com o limite global de comandos d
 | Comandos públicos | **92** |
 | Comandos DEV privados | **8** |
 | Categorias públicas | **13** |
-| Categorias técnicas totais | **16** |
+| Categorias totais | **14** |
 | Workers observáveis | **15** |
 | Feature flags | **29** |
 | Código ativo em `src/` | **TypeScript** |
@@ -71,17 +71,9 @@ A arquitetura foi desenhada para crescer mesmo com o limite global de comandos d
 
 ## Categorias e comandos
 
-### Administração DEV
+### DEV
 
-`/addmoney`
-
-### Aplicações DEV
-
-`/apps`
-
-### Operações DEV
-
-`/dashboard` · `/devctl` · `/featureflags` · `/integridade` · `/release` · `/workerctl`
+`/addmoney` · `/apps` · `/dashboard` · `/devctl` · `/featureflags` · `/integridade` · `/release` · `/workerctl`
 
 ### Atendimento e Tickets
 
@@ -526,3 +518,4 @@ Nunca envie tokens, arquivos `.env`, chaves de API, credenciais do MongoDB ou da
 <p align="center">
   <strong>Samy — tecnologia, segurança e experiências premium dentro do Discord.</strong>
 </p>
+
