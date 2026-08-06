@@ -1,4 +1,4 @@
-# Samy — Assistente Premium Multifuncional para Discord 🤖✨
+# Samy — Plataforma Premium Multifuncional para Discord 🤖✨
 
 <p align="center">
   <img src="samy-banner2.png" alt="Banner oficial da Samy" width="900">
@@ -6,13 +6,13 @@
 
 <p align="center">
   <strong>
-    Economia, moderação, hardware, logística, utilidades, monitoramento e ferramentas administrativas
-    em uma experiência guiada por Slash Commands, painéis interativos e automações seguras.
+    Administração, economia, segurança, moderação, hardware, logística, atendimento,
+    eventos, analytics, automações e integrações em uma experiência guiada por painéis interativos.
   </strong>
 </p>
 
 <p align="center">
-  <a href="https://discord.com/api/oauth2/authorize?client_id=461634842296320000&permissions=8&scope=bot%20applications.commands">
+  <a href="https://discord.com/oauth2/authorize?client_id=461634842296320000">
     <img src="https://img.shields.io/badge/Adicionar%20ao%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Adicionar a Samy ao Discord">
   </a>
   <a href="https://discord.gg/haQPSP4EPR">
@@ -21,8 +21,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Node.js-ES2022-339933?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node.js">
-  <img src="https://img.shields.io/badge/TypeScript-Migração%20Progressiva-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Slash%20Commands-100-5865F2?style=flat-square&logo=discord&logoColor=white" alt="100 Slash Commands">
+  <img src="https://img.shields.io/badge/TypeScript-Base%20ativa-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript">
   <img src="https://img.shields.io/badge/Discord.js-v14-5865F2?style=flat-square&logo=discord&logoColor=white" alt="Discord.js v14">
   <img src="https://img.shields.io/badge/MongoDB-Atlas-47A248?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB Atlas">
   <img src="https://img.shields.io/badge/Google-Gemini%20AI-8E75B2?style=flat-square&logo=google&logoColor=white" alt="Google Gemini">
@@ -30,393 +30,447 @@
 
 ---
 
-## ✨ Uma experiência, não apenas uma lista de comandos
+## Sobre a Samy
 
-A **Samy** é um projeto pessoal desenvolvido por **Carlos Gomes** para oferecer uma central completa de recursos dentro do Discord.
+A **Samy** é uma plataforma multifuncional para Discord desenvolvida por **Carlos Gomes**. O projeto reúne recursos para usuários, comunidades, equipes, suporte, servidores públicos e operações internas em uma única experiência.
 
-Em vez de depender de comandos extensos e opções difíceis de memorizar, a Samy utiliza:
+Em vez de depender de sintaxes extensas e dezenas de subcomandos difíceis de memorizar, a Samy prioriza:
 
-- Slash Commands nativos;
-- painéis privados e interativos;
+- Slash Commands como pontos de entrada;
+- painéis privados e persistentes;
 - botões, seletores e modais;
 - confirmações para ações sensíveis;
-- paginação e navegação contextual;
-- validações de permissões e hierarquia;
-- persistência segura no MongoDB;
-- proteção contra cliques duplicados e operações concorrentes;
-- integrações com serviços externos e inteligência artificial.
+- navegação contextual e paginação;
+- permissões e hierarquia revalidadas em cada interação;
+- workers observáveis e feature flags;
+- transações, locks, idempotência e auditoria;
+- internacionalização em Português (Brasil) e Inglês (Estados Unidos);
+- integração futura e controlada com o Samy Web.
 
-No estado atual validado do projeto, a Samy carrega **82 comandos distribuídos em 9 categorias**, sendo **78 comandos públicos** e **4 comandos DEV privados**.
-
-> A Samy está em desenvolvimento contínuo. Recursos, comandos e interfaces podem evoluir à medida que novas categorias são revisadas e migradas para TypeScript.
-
----
-
-## 🌟 Principais recursos
-
-### ⚙️ Configuração administrativa do servidor
-
-O comando `/configurar` abre uma central administrativa exclusiva para membros com permissão de **Administrador**.
-
-Pelo painel é possível gerenciar:
-
-- canal de logs de moderação;
-- cargo de mute;
-- autorole;
-- antispam;
-- sistema de XP;
-- canais e cargos ignorados pelo XP;
-- boas-vindas e despedidas;
-- categoria, logs e cargo de suporte dos tickets;
-- alertas de jogos gratuitos e promoções;
-- sistema AFK;
-- idioma e preferências gerais;
-- diagnóstico de referências inválidas;
-- exportação sanitizada das configurações;
-- restauração protegida dos padrões.
-
-Todas as alterações passam por validações de canais, cargos, hierarquia, permissões e integridade antes de serem persistidas.
+A arquitetura foi desenhada para crescer mesmo com o limite global de comandos do Discord: novas funções podem ser adicionadas como páginas, módulos e fluxos internos dos painéis, sem inflar o catálogo.
 
 ---
 
-### 💰 Economia global e infraestrutura virtual
+## Estado atual da plataforma
 
-A categoria Economia transforma a Samy em uma experiência completa de progressão, patrimônio e infraestrutura tecnológica.
+| Indicador | Estado |
+|---|---:|
+| Slash Commands globais | **100** |
+| Comandos públicos | **92** |
+| Comandos DEV privados | **8** |
+| Categorias públicas | **13** |
+| Categorias técnicas totais | **16** |
+| Workers observáveis | **15** |
+| Feature flags | **29** |
+| Código ativo em `src/` | **TypeScript** |
+| Idiomas | **pt-BR / en-US** |
 
-Principais comandos:
-
-`/banco` · `/carteira` · `/comprar` · `/vender` · `/mercado` · `/loja` · `/leilao` · `/empresa` · `/minerar` · `/rig` · `/servidor` · `/ranking`
-
-Recursos disponíveis:
-
-- conta bancária e operações financeiras;
-- PIX, crédito, cofre, seguros e investimentos;
-- exchange simulada de criptoativos;
-- preços consistentes entre os comandos;
-- cotações com validade e confirmação;
-- carteira com rentabilidade e composição do portfólio;
-- compra e venda por valores ou percentuais;
-- rigs de mineração e consumo de energia;
-- empresas, cargos e mining pools;
-- leilões e vendas P2P;
-- inventário de hardware e consumíveis;
-- manutenção, carreira e progressão;
-- infraestrutura SamyCloud com racks, contratos e SLA;
-- ranking global e temporadas.
-
-As escritas financeiras seguem uma arquitetura preparada para transações MongoDB, rollback, ledger global, validação de estado e proteção contra operações repetidas.
-
-> A categoria Economia permanece em Português (BR) até que sua migração completa de i18n seja realizada de forma consistente.
+> A migração estrutural do runtime para TypeScript foi concluída. O endurecimento estrito da tipagem continua gradualmente nos módulos legados convertidos, sem comprometer a estabilidade do bot.
 
 ---
 
-### 🛡️ Moderação segura, auditável e persistente
+## Categorias e comandos
 
-A categoria Moderação foi migrada para TypeScript e estruturada em comandos, painéis e serviços.
+### Administração DEV
 
-Principais comandos:
+`/addmoney`
 
-`/ban` · `/ban_massa` · `/kick` · `/mute` · `/warn` · `/caso` · `/historico` · `/limpar` · `/trancar` · `/lockdown` · `/nuke` · `/postar` · `/configurar`
+### Aplicações DEV
 
-Destaques:
+`/apps`
 
-- prévia antes de aplicar punições;
-- motivo e evidências;
-- IDs permanentes de casos;
-- histórico disciplinar privado;
-- anotações, encerramento e revogação de casos;
-- proteção contra clique duplo;
-- confirmação para operações críticas;
-- restauração precisa de canais;
-- lockdown persistente;
-- limpeza com filtros;
-- relatórios de ações em lote;
-- proteção contra menções indevidas;
-- auditoria administrativa.
+### Operações DEV
 
-O `/lockdown` preserva o estado anterior das permissões para restaurar cada canal corretamente após uma situação de emergência.
+`/dashboard` · `/devctl` · `/featureflags` · `/integridade` · `/release` · `/workerctl`
 
----
+### Atendimento e Tickets
 
-### 🖥️ Laboratório de Hardware
+`/tickets`
 
-A Samy reúne diagnóstico, comparação, compatibilidade e monitoramento em uma categoria dedicada a hardware.
+### Eventos e Agenda
 
-Comandos atuais:
+`/agenda` · `/evento`
+
+### Analytics e Inteligência de Comunidade
+
+`/analytics`
+
+### Automações e Workflows
+
+`/automacao`
+
+### Privacidade e Dados
+
+`/privacidade`
+
+### Integrações
+
+`/integracoes`
+
+### Segurança e Confiança
+
+`/antiraid` · `/automod` · `/incidente` · `/permissoes` · `/quarentena` · `/risco` · `/seguranca` · `/verificacao`
+
+### Economia
+
+`/banco` · `/benchmarks` · `/diario` · `/empresa` · `/energia` · `/hackear` · `/inventario` · `/leilao` · `/loja` · `/lootbox` · `/manutencao` · `/mercado` · `/minerar` · `/mochila` · `/perfil` · `/ranking` · `/rig` · `/saldo` · `/servidor` · `/trabalhar`
+
+### Hardware
 
 `/bench` · `/biosguard` · `/buildlab` · `/debloat` · `/jogosgratis` · `/monitor` · `/pcdoctor` · `/powercheck` · `/promocoes` · `/serverstatus`
 
-Recursos:
+### Moderação
+
+`/ban` · `/ban_massa` · `/caso` · `/configurar` · `/historico` · `/kick` · `/limpar` · `/lockdown` · `/mute` · `/nuke` · `/postar` · `/trancar` · `/warn`
+
+### Logística
+
+`/cotacao` · `/declarar` · `/dimensoes` · `/importacao` · `/rastreio` · `/taxa`
+
+### Sistemas
+
+`/conversor` · `/cron` · `/docs` · `/formatar` · `/readme` · `/regex` · `/run`
+
+### Utilidades
+
+`/afk` · `/avatar` · `/botinfo` · `/calculadora` · `/cambio` · `/clima` · `/color` · `/enquete` · `/help` · `/lembrete` · `/notas` · `/ping` · `/qrcode` · `/serverinfo` · `/shorturl` · `/sorteio` · `/temporizador` · `/timestamp` · `/traduzir` · `/userinfo` · `/whois`
+
+---
+
+## Experiência premium
+
+### Central administrativa
+
+O `/configurar` reúne a administração do servidor em um painel guiado. Entre os módulos disponíveis estão:
+
+- logs de moderação;
+- cargo de mute;
+- autorole;
+- antispam;
+- XP e exceções;
+- boas-vindas e despedidas;
+- tickets e suporte;
+- alertas de promoções e jogos;
+- sistema AFK;
+- idioma do servidor;
+- diagnóstico de referências inválidas;
+- exportação sanitizada;
+- restauração protegida de configurações.
+
+Alterações administrativas passam por validação de canal, cargo, hierarquia, permissões e integridade antes da persistência.
+
+### Economia global
+
+A Economia oferece uma experiência de progressão, patrimônio e infraestrutura tecnológica com:
+
+- banco, PIX, crédito, cofre, seguros e investimentos;
+- exchange simulada de criptoativos;
+- compra, venda e carteira integradas ao `/mercado`;
+- cotações com validade e confirmação;
+- ledger financeiro e protocolos de operação;
+- rigs de mineração, energia e manutenção;
+- empresas, cargos e mining pools;
+- inventário, consumíveis, leilões e vendas P2P;
+- carreira, ranking e temporadas;
+- infraestrutura SamyCloud com racks, contratos e SLA.
+
+Operações sensíveis utilizam validação de estado, locks, transações MongoDB, rollback e proteção contra duplicidade.
+
+### Segurança e Confiança
+
+A categoria de Segurança inclui:
+
+- postura de segurança do servidor;
+- AntiRaid com simulação;
+- AutoMod complementar;
+- verificação e onboarding;
+- quarentena reversível;
+- auditoria de permissões;
+- avaliação explicável de risco;
+- gestão de incidentes com linha do tempo.
+
+A IA pode auxiliar com explicações, mas decisões de segurança permanecem determinísticas, auditáveis e reversíveis.
+
+### Moderação
+
+A Moderação foi estruturada em comandos, painéis e serviços com:
+
+- prévia antes de punições;
+- motivo, evidências e identificação de casos;
+- histórico disciplinar privado;
+- revogação e encerramento de casos;
+- bloqueio contra clique duplo;
+- confirmação de operações críticas;
+- lockdown persistente e restauração precisa;
+- limpeza inteligente;
+- relatórios de ações em lote;
+- proteção contra menções indevidas.
+
+### Atendimento e Tickets
+
+O `/tickets` concentra a experiência completa de suporte:
+
+- departamentos, formulários e prioridades;
+- filas, responsáveis e transferências;
+- participantes adicionais e notas internas;
+- SLA de primeira resposta e resolução;
+- escalonamentos;
+- transcrições;
+- feedback;
+- base de ajuda;
+- métricas e retenção.
+
+### Eventos e Agenda
+
+Os painéis de `/evento` e `/agenda` oferecem:
+
+- criação e administração de eventos;
+- inscrições e lista de espera;
+- check-in e presença;
+- recorrência;
+- fusos horários;
+- lembretes;
+- capacidade máxima;
+- estatísticas de comparecimento.
+
+### Analytics
+
+O `/analytics` transforma atividade agregada em indicadores para administradores:
+
+- engajamento;
+- crescimento;
+- retenção;
+- horários de atividade;
+- saúde dos canais;
+- onboarding;
+- moderação;
+- tickets e eventos;
+- detecção de anomalias;
+- relatórios e exportações.
+
+O conteúdo das mensagens não é armazenado para compor essas métricas.
+
+### Automações
+
+O `/automacao` permite criar workflows guiados com:
+
+- gatilhos e ações de catálogo fechado;
+- condições simples;
+- etapas ordenadas;
+- modelos reutilizáveis;
+- simulação antes da ativação;
+- execução manual confirmada;
+- histórico, locks e correlação;
+- prevenção de loops;
+- pausa automática após falhas repetidas.
+
+A arquitetura não permite `eval`, shell, terminal remoto, código arbitrário ou acesso livre ao MongoDB.
+
+### Privacidade
+
+O `/privacidade` reúne:
+
+- inventário de dados por módulo;
+- exportação autenticada;
+- solicitação de exclusão ou anonimização;
+- protocolos e acompanhamento;
+- consentimentos opcionais;
+- políticas de retenção;
+- processamento idempotente.
+
+### Integrações
+
+O `/integracoes` oferece conectores controlados para:
+
+- GitHub;
+- feeds RSS e Atom;
+- páginas de status;
+- monitoramento de saúde;
+- histórico de entregas;
+- testes de conexão;
+- deduplicação e retry com backoff.
+
+A camada de rede utiliza HTTPS, timeout, limite de corpo, validação de redirecionamentos e proteção contra SSRF.
+
+### Hardware
+
+O laboratório de Hardware reúne:
 
 - comparação de CPUs e GPUs;
-- referências públicas e fontes transparentes;
-- auditoria de potência e conectores da fonte;
-- análise de margem elétrica e riscos;
-- compatibilidade para montagem de computadores;
+- fontes públicas e transparentes;
+- análise elétrica e de conectores;
+- compatibilidade de componentes;
 - triagem técnica guiada;
-- orientação segura sobre BIOS;
+- orientação sobre BIOS;
 - manutenção e debloat do Windows;
 - monitoramento de preços;
-- radar de promoções e jogos gratuitos;
-- observabilidade de jogos, cloud e endpoints;
-- integração com Gemini como camada auxiliar.
+- promoções e jogos gratuitos;
+- observabilidade de jogos, cloud e endpoints.
 
-A lógica determinística mantém autoridade sobre o diagnóstico. A IA complementa a explicação, mas não substitui verificações técnicas obrigatórias.
-
----
-
-### 📦 Logística e importação
-
-A categoria de Logística reúne ferramentas para acompanhamento de encomendas e simulação de custos.
-
-Comandos:
-
-`/cotacao` · `/declarar` · `/rastreio` · `/taxa`
-
-Possibilidades:
-
-- consulta de moedas;
-- acompanhamento de rastreios;
-- histórico e rotas de encomendas;
-- declaração alfandegária;
-- cálculo de impostos;
-- simulação do Remessa Conforme;
-- análise de peso e risco de envio.
+A lógica determinística mantém autoridade sobre diagnósticos. A Gemini atua apenas como camada auxiliar.
 
 ---
 
-### 🧰 Utilidades para o dia a dia
+## Área DEV privada
 
-A Samy também oferece ferramentas rápidas para usuários e comunidades:
+Os oito comandos DEV são protegidos por contexto de instalação e por listas explícitas de autorização, como `OWNER_IDS` e `BOT_ADMIN_IDS`.
 
-`/help` · `/afk` · `/avatar` · `/botinfo` · `/calculadora` · `/cambio` · `/clima` · `/color` · `/enquete` · `/lembrete` · `/ping` · `/qrcode` · `/serverinfo` · `/shorturl` · `/sorteio` · `/temporizador` · `/timestamp` · `/traduzir` · `/userinfo` · `/whois`
-
-O `/help` funciona como uma central interativa com:
-
-- categorias;
-- busca;
-- paginação;
-- ficha de comandos;
-- filtragem por nível de acesso;
-- ocultação dos comandos DEV para usuários comuns.
-
----
-
-### 💻 Ferramentas para desenvolvimento
-
-A Samy possui comandos voltados a programação e produtividade:
-
-`/bits` · `/conversor` · `/docs` · `/erro` · `/formatar` · `/readme` · `/run`
-
-Esses recursos ajudam com:
-
-- conversões numéricas;
-- armazenamento e largura de banda;
-- consulta a documentações;
-- busca de soluções para erros;
-- formatação de código;
-- geração de README;
-- execução controlada de pequenos códigos.
-
----
-
-### 🔧 Área DEV privada
-
-Os comandos DEV são publicados somente nas guilds privadas configuradas para controle da Samy e permanecem invisíveis nos servidores públicos.
-
-Comandos atuais:
-
-`/addmoney` · `/apps` · `/dashboard` · `/devctl`
-
-O `/dashboard` oferece observabilidade de:
+O `/dashboard` oferece visão consolidada de:
 
 - processo Node.js;
-- memória e CPU;
-- event loop;
+- memória, CPU e event loop;
 - MongoDB;
 - conexão com o Discord;
 - latência;
 - workers;
-- erros e uso de comandos;
-- saúde geral do sistema.
+- feature flags;
+- erros e incidentes;
+- comandos mais utilizados;
+- tickets, eventos, automações e integrações;
+- releases e auditorias de integridade.
 
-O `/devctl` centraliza operações administrativas como:
+O `/devctl` centraliza operações protegidas de manutenção, suporte, auditoria e observabilidade.
 
-- manutenção global;
-- servidores conectados;
-- blacklist;
-- suporte remoto;
-- logs;
-- analytics;
-- auditoria;
-- mensagens;
-- identidade do bot;
-- controles operacionais protegidos.
+O `/integridade` verifica a coerência técnica da plataforma, enquanto o `/release` registra versões, prontidão, deploy e rollback.
 
-Ações DEV são validadas novamente durante a execução com base em `OWNER_IDS` e `BOT_ADMIN_IDS`.
-
-Ferramentas de execução arbitrária, como `eval` e terminal remoto irrestrito, não fazem parte da arquitetura segura atual.
+Ferramentas de execução arbitrária, como `eval` e terminal remoto irrestrito, não fazem parte da arquitetura.
 
 ---
 
-### 🧠 Inteligência Artificial com Google Gemini
+## Internacionalização
 
-A Gemini é utilizada como camada auxiliar em recursos específicos, principalmente em análises de hardware e explicações técnicas.
-
-A integração foi planejada para:
-
-- manter diagnósticos determinísticos como fonte principal;
-- aplicar cache quando apropriado;
-- reduzir chamadas desnecessárias;
-- oferecer fallback quando a IA estiver indisponível;
-- impedir que uma resposta de IA sobrescreva verificações críticas;
-- evitar exposição de credenciais e dados internos.
-
----
-
-### 🌍 Internacionalização
-
-A Samy possui infraestrutura de i18n por servidor com suporte a:
+A Samy possui i18n por servidor com suporte a:
 
 - Português (Brasil);
 - Inglês (Estados Unidos).
 
-As categorias que já utilizam i18n mantêm suas traduções sincronizadas durante as revisões. Categorias ainda não migradas completamente permanecem no idioma consolidado até uma atualização integral e validada.
+A localização abrange comandos, painéis, botões, seletores, modais, erros, confirmações e estados vazios.
 
 ---
 
-## 🧬 Arquitetura do projeto
+## Arquitetura
 
-O projeto está sendo migrado progressivamente para TypeScript e segue uma separação em camadas:
+A base segue uma separação em camadas:
 
 ```text
 Comando
-└── registra o Slash Command, inicia a resposta e abre o painel
+└── registra o Slash Command, valida o acesso inicial e abre o painel
 
 Painel
-└── controla embeds, botões, seletores, modais e navegação
+└── controla embeds, botões, seletores, modais, sessões e navegação
 
 Serviço
-└── concentra regras de negócio, segurança e persistência
+└── concentra regras de negócio, concorrência, auditoria e persistência
 
 Modelo
-└── representa dados e estados no MongoDB
+└── representa estados e documentos no MongoDB
 
 Tipos e contratos
-└── garantem consistência entre todas as camadas
+└── conectam as camadas e preparam integrações futuras
 ```
 
-Exemplo:
+Estrutura resumida:
 
 ```text
 src/
-├── slashCommands/
+├── core/
+├── data/
+├── events/
+├── integrations/
+├── locales/
+├── models/
 ├── panels/
 ├── services/
-├── models/
-├── events/
-├── core/
-├── locales/
+├── slashCommands/
+├── types/
 └── utils/
 ```
 
-A compilação TypeScript gera a versão executável em `dist/`, enquanto scripts de build copiam os recursos JSON necessários para produção.
+A compilação TypeScript gera a versão executável em `dist/`, e os scripts de build copiam os recursos necessários para produção.
 
 ---
 
-## 🔐 Segurança e confiabilidade
+## Segurança e confiabilidade
 
-Entre as proteções utilizadas no projeto estão:
+Entre as proteções utilizadas estão:
 
-- respostas efêmeras para painéis privados;
-- restrição por permissões do Discord;
-- revalidação de acesso durante cada interação;
-- confirmação para ações destrutivas;
-- locks por operação;
-- proteção contra clique duplo;
-- validação de canais e cargos;
-- checagem de hierarquia;
-- proteção de menções;
-- auditoria;
-- persistência de estados críticos;
-- ocultação dos comandos DEV;
-- deploy privado para guilds de controle;
-- ausência de terminal remoto irrestrito;
-- tratamento de falhas de banco e APIs externas;
-- limpeza de arquivos JavaScript legados que sombreiam arquivos TypeScript.
+- respostas privadas para informações sensíveis;
+- validação de permissões e hierarquia;
+- revalidação de acesso em cada interação;
+- confirmações para ações destrutivas;
+- locks e idempotência;
+- transações MongoDB e rollback;
+- proteção contra cliques duplicados;
+- validação de canais, cargos e menções;
+- trilha de auditoria;
+- retenção controlada;
+- feature flags e kill switches;
+- workers observáveis;
+- tratamento de falhas de banco e APIs;
+- proteção contra SSRF, ReDoS e execução arbitrária;
+- limpeza segura de artefatos JavaScript legados.
 
 ---
 
-## 📊 Estado atual validado
+## Validação e desenvolvimento
 
-O projeto possui scripts dedicados de validação:
+Principais scripts:
 
 ```bash
+npm run migration:check
+npm run migration:clean
 npm run typecheck
-npm run test:moderacao
-npm run test:hardware
-npm run test:priority
+npm run test:mega
 npm run build
+npm run deploy
+npm run verify:dev-deploy
+npm run dev
 ```
 
-O último ciclo validado confirmou:
+Fluxo recomendado no Windows PowerShell:
 
-```text
-✅ TypeScript sem erros
-✅ Moderação premium validada
-✅ Hardware TypeScript validado
-✅ /help, /dashboard e /devctl validados
-✅ Build de produção concluído
-✅ 82 comandos carregados
-✅ MongoDB conectado
-✅ Gemini inicializada
-✅ Motores automáticos iniciados
+```powershell
+cmd /c "npm run typecheck && npm run test:mega && npm run deploy && npm run verify:dev-deploy"
 ```
 
-Motores automáticos atuais:
+Somente depois de todos os testes passarem:
 
-- lembretes;
-- sorteios;
-- rastreio;
-- jogos gratuitos;
-- monitor de preços;
-- promoções.
+```powershell
+npm run dev
+```
 
 ---
 
-## 🚀 Como adicionar e começar
+## Como adicionar a Samy
 
-1. **[Adicione a Samy ao seu servidor](https://discord.com/api/oauth2/authorize?client_id=461634842296320000&permissions=8&scope=bot%20applications.commands)**.
-2. Selecione um servidor no qual você possua autorização.
-3. Revise e confirme as permissões solicitadas pelo Discord.
-4. Execute `/help` para explorar os recursos disponíveis.
-5. Administradores podem utilizar `/configurar` para preparar os módulos do servidor.
-
-> Recomenda-se manter o cargo da Samy acima dos cargos que ela precisa administrar e revisar as permissões dos canais utilizados para logs, tickets e alertas.
+1. **[Adicione a Samy ao Discord](https://discord.com/oauth2/authorize?client_id=461634842296320000)**.
+2. Escolha o servidor e revise as permissões solicitadas.
+3. Execute `/help` para conhecer os módulos disponíveis.
+4. Use `/configurar` para preparar os recursos administrativos.
+5. Mantenha o cargo da Samy acima dos cargos que ela precisa gerenciar.
 
 ---
 
-## 🗺️ Próximas evoluções
+## Roadmap
 
-O roadmap atual inclui:
+A próxima grande etapa planejada é:
 
-- conclusão da migração integral para TypeScript;
-- expansão das suítes de testes;
-- revisão premium das categorias restantes;
-- `/featureflags` para ativação controlada de módulos;
-- `/workerctl` para gerenciamento dos motores automáticos;
-- observabilidade e auditoria ampliadas;
-- evolução do deploy seguro;
-- plataforma web oficial;
-- login com Discord OAuth2;
-- dashboard web para configuração dos servidores;
-- área DEV web;
-- página pública de status;
-- sincronização entre bot, site e MongoDB.
+### Fase 8 — Samy Nexus: Ecossistema Premium e Experiências Inteligentes
+
+- Samy Music Platform;
+- centrais persistentes sem novos Slash Commands;
+- evolução do `/dashboard` e dos painéis internos;
+- expansão de Tickets, Eventos, Analytics e Automações;
+- performance, observabilidade e recuperação de sessões;
+- acessibilidade e experiência;
+- remoção gradual de `@ts-nocheck`;
+- testes de carga, concorrência e recuperação.
+
+O desenvolvimento do **Samy Web** ocorre em projeto separado. O bot prepara contratos e pontos de integração, sem misturar o código dos dois projetos.
 
 ---
 
-## 📜 Documentos legais
+## Documentos legais
 
 - **[Termos de Serviço](https://github.com/carlosvcl/samy-bot-docs/blob/main/TERMOS_DE_SERVICO.md)**
 - **[Política de Privacidade](https://github.com/carlosvcl/samy-bot-docs/blob/main/POLITICA_DE_PRIVACIDADE.md)**
@@ -425,50 +479,32 @@ Ao adicionar e utilizar a Samy, o usuário declara estar de acordo com os docume
 
 ---
 
-## 🤝 Contribuições
+## Contribuições
 
 Sugestões, relatórios de problemas e contribuições são bem-vindos.
-
-### Reportar um problema ou sugerir um recurso
-
-Antes de abrir uma nova issue, verifique se já existe uma discussão semelhante:
 
 - **[Consultar issues](https://github.com/carlosvcl/samy-bot/issues)**
 - **[Abrir uma nova issue](https://github.com/carlosvcl/samy-bot/issues/new/choose)**
 
 Inclua, sempre que possível:
 
-- comando afetado;
+- comando ou módulo afetado;
 - comportamento esperado;
 - comportamento observado;
 - passos para reproduzir;
-- prints ou logs sem informações sensíveis;
+- capturas ou logs sem dados sensíveis;
 - ambiente em que ocorreu.
 
-### Contribuir com código
-
-1. Faça um fork do repositório.
-2. Crie uma branch com nome descritivo.
-3. Mantenha cada commit focado em uma alteração lógica.
-4. Execute os testes aplicáveis.
-5. Abra um Pull Request explicando o problema e a solução.
-
-Nunca envie:
-
-- tokens;
-- arquivos `.env`;
-- chaves de API;
-- credenciais do MongoDB;
-- dados privados de usuários ou servidores.
+Nunca envie tokens, arquivos `.env`, chaves de API, credenciais do MongoDB ou dados privados de usuários e servidores.
 
 ---
 
-## 🛠️ Tecnologias
+## Tecnologias
 
 | Tecnologia | Utilização |
 |---|---|
 | **Node.js** | Ambiente de execução |
-| **TypeScript** | Tipagem, contratos e migração estrutural |
+| **TypeScript** | Código ativo, contratos e compilação |
 | **Discord.js v14** | Integração com a API do Discord |
 | **MongoDB Atlas** | Persistência de configurações e estados |
 | **Mongoose** | Modelagem e operações no MongoDB |
@@ -478,7 +514,7 @@ Nunca envie:
 
 ---
 
-## 📞 Contato e suporte
+## Contato e suporte
 
 - **Servidor de suporte:** [discord.gg/haQPSP4EPR](https://discord.gg/haQPSP4EPR)
 - **E-mail:** `samybot25@gmail.com`
@@ -488,5 +524,5 @@ Nunca envie:
 ---
 
 <p align="center">
-  <strong>Samy — tecnologia, segurança e experiência premium dentro do Discord.</strong>
+  <strong>Samy — tecnologia, segurança e experiências premium dentro do Discord.</strong>
 </p>
