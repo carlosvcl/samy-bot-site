@@ -1,273 +1,65 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comandos - Samy Bot</title>
-    <meta name="description" content="Explore a lista completa de comandos disponíveis no Samy Bot para Discord.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="assets/samy-logo.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-
-    <header>
-        <nav class="container navbar-samy">
-            <a href="index.html#home" class="logo-area">
-                <div class="logo-image-wrapper">
-                    <img src="assets/samy-logo.png" alt="Logo Samy Bot" class="logo-img">
-                </div>
-                <span class="logo-text">Samy Bot</span>
-            </a>
-            <ul class="nav-links-samy">
-                <li><a href="index.html#home">Início</a></li>
-                <li><a href="index.html#features">Funcionalidades</a></li>
-                <li><a href="comandos.html">Comandos</a></li>
-                <li><a href="index.html#getting-started">Primeiros Passos</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="changelog.html">Atualizações</a></li>
-                <li><a href="index.html#support">Suporte</a></li>
-                <li><a href="https://discord.gg/haQPSP4EPR" class="btn btn-primary nav-cta" target="_blank">Adicionar ao Discord</a></li>
-            </ul>
-            <button class="mobile-menu-button" aria-label="Abrir Menu" aria-expanded="false">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
-
-    <main>
-        <section class="page-title-section section-bg-alt">
-            <div class="container">
-                <h1><i class="fas fa-terminal"></i> Nossos Comandos</h1>
-                <p>Descubra tudo que o Samy Bot pode fazer por você e seu servidor!</p>
-            </div>
-        </section>
-
-        <section id="all-commands" class="commands-section commands-page">
-            <div class="container">
-                <p class="commands-intro">
-                    Abaixo você encontra a lista completa de comandos do Samy Bot, organizados por categoria.
-                    Lembre-se que o prefixo padrão é <strong>s!</strong> (pode ser alterado com <code>s!setprefix</code>).
-                    Use <code>s!help [nome do comando]</code> no Discord para informações detalhadas sobre um comando específico.
-                </p>
-
-                <div class="command-category">
-                    <h4><i class="fas fa-code-branch"></i> Dev <span class="command-count">(4 comandos)</span></h4>
-                    <p class="category-description">Comandos para desenvolvedores e gerenciamento do bot.</p>
-                    <ul class="command-list detailed-command-list">
-                        <li>
-                            <code title="Acessa o painel de desenvolvedor.">dashboard</code>
-                            <span class="command-description">- Acessa o painel de controle do bot (acesso restrito).</span>
-                        </li>
-                        <li>
-                            <code title="Obtém informações do banco de dados de um usuário.">getuserdb</code>
-                            <span class="command-description">- Retorna dados de um usuário específico do banco de dados (acesso restrito).</span>
-                        </li>
-                        <li>
-                            <code title="Lista todos os servidores onde o bot está.">listguilds</code>
-                            <span class="command-description">- Exibe uma lista de todos os servidores que o bot está atualmente (acesso restrito).</span>
-                        </li>
-                        <li>
-                            <code title="Recarrega módulos ou configurações do bot.">reload</code>
-                            <span class="command-description">- Recarrega um módulo ou comando específico do bot (acesso restrito).</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="command-category">
-                    <h4><i class="fas fa-coins"></i> Economia <span class="command-count">(17 comandos)</span></h4>
-                    <p class="category-description">Comandos para interagir com o sistema de economia global do Samy Bot.</p>
-                    <ul class="command-list detailed-command-list">
-                        <li>
-                            <code title="Verifica seu saldo ou de outro usuário.">balance [@usuario?]</code>
-                            <span class="command-description">- Mostra seu saldo atual de moedas ou de outro membro. Ex: <code>s!balance @Fulano</code></span>
-                        </li>
-                        <li>
-                            <code title="Compra um item da loja.">buy [nome do item] [quantidade?]</code>
-                            <span class="command-description">- Compra um item específico da loja. A quantidade é opcional. Ex: <code>s!buy Potion 2</code></span>
-                        </li>
-                        <li>
-                            <code title="Coleta sua renda passiva.">collectincome</code>
-                            <span class="command-description">- Coleta a renda gerada passivamente por seus negócios ou propriedades.</span>
-                        </li>
-                        <li>
-                            <code title="Coleta seus ganhos de investimentos.">collectinvestment</code>
-                            <span class="command-description">- Resgata os lucros dos seus investimentos.</span>
-                        </li>
-                        <li>
-                            <code title="Recebe sua recompensa diária.">daily</code>
-                            <span class="command-description">- Colete sua recompensa diária em moedas e, às vezes, itens bônus!</span>
-                        </li>
-                        <li>
-                            <code title="Verifica ou usa sua energia.">energy</code>
-                            <span class="command-description">- Mostra seu nível de energia, essencial para algumas ações como trabalhar ou minerar.</span>
-                        </li>
-                        <li>
-                            <code title="Evolui um item ou pet.">evolve [nome do item/pet]</code>
-                            <span class="command-description">- Tenta evoluir um item ou mascote do seu inventário para uma forma mais poderosa.</span>
-                        </li>
-                        <li>
-                            <code title="Mostra seu inventário.">inventory</code>
-                            <span class="command-description">- Exibe todos os itens que você possui no seu inventário.</span>
-                        </li>
-                        <li>
-                            <code title="Investe seu dinheiro.">invest [quantia] [tipo de investimento?]</code>
-                            <span class="command-description">- Investe uma quantia de moedas em diferentes tipos de investimento disponíveis.</span>
-                        </li>
-                        <li>
-                            <code title="Gerencia seus investimentos.">investimentos</code>
-                            <span class="command-description">- Mostra seus investimentos ativos e seus status.</span>
-                        </li>
-                        <li>
-                            <code title="Mostra o ranking de jogadores.">leaderboard [tipo de rank?]</code>
-                            <span class="command-description">- Exibe o ranking dos jogadores (ex: mais ricos, mais XP).</span>
-                        </li>
-                        <li>
-                            <code title="Minera recursos ou moedas.">mine</code>
-                            <span class="command-description">- Tenta a sorte minerando para encontrar moedas, gemas ou outros recursos valiosos.</span>
-                        </li>
-                        <li>
-                            <code title="Verifica seu ranking ou de outro usuário.">rank [@usuario?]</code>
-                            <span class="command-description">- Mostra seu nível, XP e posição no ranking de experiência ou de outro usuário.</span>
-                        </li>
-                        <li>
-                            <code title="Vende um item do seu inventário.">sell [nome do item] [quantidade?]</code>
-                            <span class="command-description">- Vende um item do seu inventário para obter moedas.</span>
-                        </li>
-                        <li>
-                            <code title="Abre a loja de itens.">shop [categoria?]</code>
-                            <span class="command-description">- Mostra os itens disponíveis para compra na loja do bot, opcionalmente filtrado por categoria.</span>
-                        </li>
-                        <li>
-                            <code title="Usa um item do seu inventário.">use [nome do item]</code>
-                            <span class="command-description">- Utiliza um item consumível do seu inventário.</span>
-                        </li>
-                        <li>
-                            <code title="Trabalha para ganhar dinheiro.">work</code>
-                            <span class="command-description">- Realiza um trabalho para ganhar uma quantia em moedas.</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="command-category">
-                    <h4><i class="fas fa-robot"></i> IA <span class="command-count">(2 comandos)</span></h4>
-                    <p class="category-description">Interaja com a poderosa IA do Samy Bot.</p>
-                    <ul class="command-list detailed-command-list">
-                       <li>
-                           <code title="Faça uma pergunta para a Inteligência Artificial.">ask [pergunta]</code>
-                           <span class="command-description">- Envie uma pergunta e receba uma resposta da IA. Ex: <code>s!ask Qual a capital do Brasil?</code></span>
-                        </li>
-                       <li>
-                           <code title="Converse com a Inteligência Artificial.">chat [mensagem]</code>
-                           <span class="command-description">- Inicie ou continue uma conversa com a IA. Ex: <code>s!chat Olá, como você está?</code></span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="command-category">
-                    <h4><i class="fas fa-info-circle"></i> Informações <span class="command-count">(PREENCHER)</span></h4>
-                    <p class="category-description">Comandos para obter diversas informações úteis.</p>
-                    <ul class="command-list detailed-command-list">
-                       <li>
-                           <code title="Verifica a previsão do tempo para uma cidade.">clima [cidade]</code>
-                           <span class="command-description">- Mostra a previsão do tempo atual para a cidade especificada. Ex: <code>s!clima São Paulo</code></span>
-                        </li>
-                       <li>
-                           <code title="Busca informações na Wikipedia.">wikipedia [termo de busca]</code>
-                           <span class="command-description">- Procura um resumo sobre o termo desejado na Wikipedia. Ex: <code>s!wikipedia Discord</code></span>
-                        </li>
-                        </ul>
-                </div>
-                <div class="command-category">
-                    <h4><i class="fas fa-shield-alt"></i> Moderação <span class="command-count">(PREENCHER)</span></h4>
-                    <p class="category-description">Ferramentas para manter seu servidor seguro e organizado.</p>
-                    <ul class="command-list detailed-command-list">
-                       <li>
-                           <code title="Bane um usuário do servidor.">ban @usuário [motivo?]</code>
-                           <span class="command-description">- Bane permanentemente um usuário do servidor. Motivo opcional. Ex: <code>s!ban @Spammer Spam excessivo</code></span>
-                        </li>
-                       <li>
-                           <code title="Mostra o histórico de moderação de um usuário.">history @usuário</code>
-                           <span class="command-description">- Exibe o histórico de punições (avisos, mutes, kicks, bans) de um usuário no servidor.</span>
-                        </li>
-                       <li>
-                           <code title="Expulsa um usuário do servidor.">kick @usuário [motivo?]</code>
-                           <span class="command-description">- Remove um usuário do servidor, mas ele pode voltar. Motivo opcional.</span>
-                        </li>
-                        <li>
-                           <code title="Silencia um usuário no servidor.">mute @usuário [tempo?] [motivo?]</code>
-                           <span class="command-description">- Impede um usuário de enviar mensagens. Tempo e motivo são opcionais. Ex: <code>s!mute @Barulhento 1h Flood</code></span>
-                        </li>
-                       <li>
-                           <code title="Remove o silenciamento de um usuário.">unmute @usuário</code>
-                           <span class="command-description">- Permite que um usuário silenciado volte a enviar mensagens.</span>
-                        </li>
-                       <li>
-                           <code title="Adverte um usuário.">warn @usuário [motivo]</code>
-                           <span class="command-description">- Aplica um aviso formal a um usuário. O motivo é recomendado.</span>
-                        </li>
-                        </ul>
-                </div>
-                <div class="command-category">
-                    <h4><i class="fas fa-star"></i> Utilidades <span class="command-count">(PREENCHER)</span></h4>
-                    <p class="category-description">Comandos úteis para diversas finalidades no dia a dia.</p>
-                    <ul class="command-list detailed-command-list">
-                        <li>
-                            <code title="Mostra o avatar de um usuário.">avatar [@usuário?]</code>
-                            <span class="command-description">- Exibe o seu avatar ou do usuário mencionado em tamanho grande.</span>
-                        </li>
-                        <li>
-                            <code title="Exibe informações sobre o bot.">botinfo</code>
-                            <span class="command-description">- Mostra detalhes sobre o Samy Bot, como versão, desenvolvedor, tempo online e links úteis.</span>
-                        </li>
-                        <li>
-                            <code title="Mostra informações sobre uma cor.">color [código hex, rgb ou nome da cor]</code>
-                            <span class="command-description">- Exibe uma prévia da cor e seus códigos. Ex: <code>s!color #FF0000</code> ou <code>s!color azul</code></span>
-                        </li>
-                        <li>
-                            <code title="Exibe a lista de todos os comandos ou informações de um comando específico.">help [nome do comando?]</code>
-                            <span class="command-description">- Mostra a lista de comandos ou detalhes de um comando específico.</span>
-                        </li>
-                        <li>
-                            <code title="Resolve expressões matemáticas.">math [expressão]</code>
-                            <span class="command-description">- Calcula uma expressão matemática. Ex: <code>s!math (2+2)*5</code></span>
-                        </li>
-                        <li>
-                            <code title="Verifica a latência do bot.">ping</code>
-                            <span class="command-description">- Testa a velocidade de resposta do bot ao servidor Discord.</span>
-                        </li>
-                        <li>
-                            <code title="Cria uma enquete no servidor.">poll "[pergunta]" "[opção1]" "[opção2]" ...</code>
-                            <span class="command-description">- Cria uma enquete com reações para votação.</span>
-                        </li>
-                        <li>
-                            <code title="Exibe informações sobre o servidor atual.">serverinfo</code>
-                            <span class="command-description">- Mostra detalhes sobre o servidor atual (ID, dono, membros, canais, etc.).</span>
-                        </li>
-                        <li>
-                            <code title="Exibe informações sobre um usuário.">userinfo [@usuário?]</code>
-                            <span class="command-description">- Mostra detalhes sobre você ou o usuário mencionado (ID, cargos, data de entrada, etc.).</span>
-                        </li>
-                        </ul>
-                </div>
-                </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="index.html#home">Início</a> |
-                <a href="comandos.html">Comandos</a> |
-                <a href="faq.html">FAQ</a> |
-                <a href="changelog.html">Atualizações</a> |
-                <a href="https://github.com/carlosvcl/samy-bot-docs/blob/main/TERMOS_DE_SERVICO.md" target="_blank">Termos de Serviço</a> |
-                <a href="https://github.com/carlosvcl/samy-bot-docs/blob/main/POLITICA_DE_PRIVACIDADE.md" target="_blank">Política de Privacidade</a>
-            </div>
-            <p class="footer-copyright">&copy; <span id="currentYear"></span> Samy Bot & CarlosGomes#2263. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<!doctype html><html lang="pt-BR"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080910">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+<title>Comandos — Samy Platform</title><meta name="description" content="Explore os 100 Slash Commands da Samy organizados por categoria.">
+</head><body><div class="ambient ambient-a"></div><div class="grid-overlay"></div><header class="site-header" data-header>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="shell nav-shell">
+    <a class="brand" href="index.html" aria-label="Samy — página inicial">
+      <img src="assets/samy-avatar.webp" alt="" width="42" height="42">
+      <span><b>Samy</b><small>Platform</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="index.html#plataforma">Plataforma</a>
+      <a href="comandos.html">Comandos</a>
+      <a href="faq.html">FAQ</a>
+      <a href="changelog.html">Atualizações</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-ghost btn-sm hide-mobile" href="https://discord.gg/haQPSP4EPR" target="_blank" rel="noopener">Suporte</a>
+      <a class="btn btn-primary btn-sm hide-mobile" href="https://discord.com/oauth2/authorize?client_id=461634842296320000" target="_blank" rel="noopener">Adicionar</a>
+      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Navegação mobile">
+    <a href="index.html">Início</a>
+    <a href="index.html#plataforma">Plataforma</a>
+    <a href="comandos.html">Comandos</a>
+    <a href="faq.html">FAQ</a>
+    <a href="changelog.html">Atualizações</a>
+    <a href="https://discord.gg/haQPSP4EPR" target="_blank" rel="noopener">Servidor de suporte</a>
+    <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=461634842296320000" target="_blank" rel="noopener">Adicionar ao Discord</a>
+  </nav>
+</header>
+<main id="conteudo">
+<section class="page-hero"><div class="shell"><div class="eyebrow">Catálogo completo</div><h1>100 Slash Commands.<br><span class="gradient-text">Organizados por categoria.</span></h1><p>Pesquise por nome ou função. A Samy usa comandos como entrada para experiências maiores em painéis, centrais e modais.</p><div class="page-stat-row"><span><b>100</b> comandos</span><span><b>14</b> grupos nesta página</span><span><b>8</b> comandos DEV privados</span></div></div></section>
+<section class="commands-browser"><div class="shell">
+<div class="search-panel"><label class="search-box"><span>⌕</span><input type="search" placeholder="Buscar comando, categoria ou função…" autocomplete="off" data-command-search><kbd>/</kbd></label><div class="filter-row"><button class="filter-chip active" type="button" data-filter="all">Todos <span>100</span></button><button class="filter-chip" type="button" data-filter="dev">DEV <span>8</span></button><button class="filter-chip" type="button" data-filter="analytics">Analytics <span>1</span></button><button class="filter-chip" type="button" data-filter="automa-es">Automações <span>1</span></button><button class="filter-chip" type="button" data-filter="economia">Economia <span>20</span></button><button class="filter-chip" type="button" data-filter="eventos">Eventos <span>1</span></button><button class="filter-chip" type="button" data-filter="hardware">Hardware <span>10</span></button><button class="filter-chip" type="button" data-filter="integra-es">Integrações <span>1</span></button><button class="filter-chip" type="button" data-filter="log-stica">Logística <span>6</span></button><button class="filter-chip" type="button" data-filter="modera-o">Moderação <span>13</span></button><button class="filter-chip" type="button" data-filter="privacidade">Privacidade <span>1</span></button><button class="filter-chip" type="button" data-filter="seguran-a">Segurança <span>8</span></button><button class="filter-chip" type="button" data-filter="sistemas">Sistemas <span>7</span></button><button class="filter-chip" type="button" data-filter="tickets">Tickets <span>1</span></button><button class="filter-chip" type="button" data-filter="utilidades">Utilidades <span>22</span></button></div><div class="results-line"><span data-command-count>100 comandos encontrados</span><button type="button" class="clear-search" data-clear-search>Limpar filtros</button></div></div>
+<div class="commands-list"><section class="command-category" data-category-section="dev"><div class="category-title"><span class="category-icon">⌘</span><div><h2>DEV</h2><p>8 comandos</p></div></div><div class="command-grid"><article class="command-card" data-command="addmoney dev operação financeira administrativa protegida." data-category="dev"><div><code>/addmoney</code><button class="copy-command" type="button" data-copy="/addmoney" aria-label="Copiar comando /addmoney">⧉</button></div><p>Operação financeira administrativa protegida.</p></article><article class="command-card" data-command="apps dev central privada de aplicações e operações internas." data-category="dev"><div><code>/apps</code><button class="copy-command" type="button" data-copy="/apps" aria-label="Copiar comando /apps">⧉</button></div><p>Central privada de aplicações e operações internas.</p></article><article class="command-card" data-command="dashboard dev painel dev com observabilidade, ia, nexus e guildos." data-category="dev"><div><code>/dashboard</code><button class="copy-command" type="button" data-copy="/dashboard" aria-label="Copiar comando /dashboard">⧉</button></div><p>Painel DEV com observabilidade, IA, Nexus e GuildOS.</p></article><article class="command-card" data-command="devctl dev central de operações protegidas de desenvolvimento." data-category="dev"><div><code>/devctl</code><button class="copy-command" type="button" data-copy="/devctl" aria-label="Copiar comando /devctl">⧉</button></div><p>Central de operações protegidas de desenvolvimento.</p></article><article class="command-card" data-command="featureflags dev gerencie as feature flags e kill switches da plataforma." data-category="dev"><div><code>/featureflags</code><button class="copy-command" type="button" data-copy="/featureflags" aria-label="Copiar comando /featureflags">⧉</button></div><p>Gerencie as feature flags e kill switches da plataforma.</p></article><article class="command-card" data-command="integridade dev audite coerência técnica, dependências e integridade." data-category="dev"><div><code>/integridade</code><button class="copy-command" type="button" data-copy="/integridade" aria-label="Copiar comando /integridade">⧉</button></div><p>Audite coerência técnica, dependências e integridade.</p></article><article class="command-card" data-command="release dev registre prontidão, versões, deploy e rollback." data-category="dev"><div><code>/release</code><button class="copy-command" type="button" data-copy="/release" aria-label="Copiar comando /release">⧉</button></div><p>Registre prontidão, versões, deploy e rollback.</p></article><article class="command-card" data-command="workerctl dev controle e observe os workers do runtime." data-category="dev"><div><code>/workerctl</code><button class="copy-command" type="button" data-copy="/workerctl" aria-label="Copiar comando /workerctl">⧉</button></div><p>Controle e observe os workers do runtime.</p></article></div></section><section class="command-category" data-category-section="analytics"><div class="category-title"><span class="category-icon">◫</span><div><h2>Analytics</h2><p>1 comando</p></div></div><div class="command-grid"><article class="command-card" data-command="analytics analytics central de métricas, retenção, atividade e saúde da comunidade." data-category="analytics"><div><code>/analytics</code><button class="copy-command" type="button" data-copy="/analytics" aria-label="Copiar comando /analytics">⧉</button></div><p>Central de métricas, retenção, atividade e saúde da comunidade.</p></article></div></section><section class="command-category" data-category-section="automa-es"><div class="category-title"><span class="category-icon">⚡</span><div><h2>Automações</h2><p>1 comando</p></div></div><div class="command-grid"><article class="command-card" data-command="automacao automações crie e acompanhe workflows guiados de catálogo fechado." data-category="automa-es"><div><code>/automacao</code><button class="copy-command" type="button" data-copy="/automacao" aria-label="Copiar comando /automacao">⧉</button></div><p>Crie e acompanhe workflows guiados de catálogo fechado.</p></article></div></section><section class="command-category" data-category-section="economia"><div class="category-title"><span class="category-icon">◈</span><div><h2>Economia</h2><p>20 comandos</p></div></div><div class="command-grid"><article class="command-card" data-command="banco economia central bancária e operações financeiras." data-category="economia"><div><code>/banco</code><button class="copy-command" type="button" data-copy="/banco" aria-label="Copiar comando /banco">⧉</button></div><p>Central bancária e operações financeiras.</p></article><article class="command-card" data-command="benchmarks economia benchmarks e desempenho da sua infraestrutura." data-category="economia"><div><code>/benchmarks</code><button class="copy-command" type="button" data-copy="/benchmarks" aria-label="Copiar comando /benchmarks">⧉</button></div><p>Benchmarks e desempenho da sua infraestrutura.</p></article><article class="command-card" data-command="diario economia recompensa diária e progressão." data-category="economia"><div><code>/diario</code><button class="copy-command" type="button" data-copy="/diario" aria-label="Copiar comando /diario">⧉</button></div><p>Recompensa diária e progressão.</p></article><article class="command-card" data-command="empresa economia central de empresas e progressão corporativa." data-category="economia"><div><code>/empresa</code><button class="copy-command" type="button" data-copy="/empresa" aria-label="Copiar comando /empresa">⧉</button></div><p>Central de empresas e progressão corporativa.</p></article><article class="command-card" data-command="energia economia gerencie energia da infraestrutura." data-category="economia"><div><code>/energia</code><button class="copy-command" type="button" data-copy="/energia" aria-label="Copiar comando /energia">⧉</button></div><p>Gerencie energia da infraestrutura.</p></article><article class="command-card" data-command="hackear economia atividade econômica temática com regras controladas." data-category="economia"><div><code>/hackear</code><button class="copy-command" type="button" data-copy="/hackear" aria-label="Copiar comando /hackear">⧉</button></div><p>Atividade econômica temática com regras controladas.</p></article><article class="command-card" data-command="inventario economia consulte e gerencie itens e patrimônio." data-category="economia"><div><code>/inventario</code><button class="copy-command" type="button" data-copy="/inventario" aria-label="Copiar comando /inventario">⧉</button></div><p>Consulte e gerencie itens e patrimônio.</p></article><article class="command-card" data-command="leilao economia central de leilões e negociações." data-category="economia"><div><code>/leilao</code><button class="copy-command" type="button" data-copy="/leilao" aria-label="Copiar comando /leilao">⧉</button></div><p>Central de leilões e negociações.</p></article><article class="command-card" data-command="loja economia acesse a loja da economia." data-category="economia"><div><code>/loja</code><button class="copy-command" type="button" data-copy="/loja" aria-label="Copiar comando /loja">⧉</button></div><p>Acesse a loja da economia.</p></article><article class="command-card" data-command="lootbox economia sistema de lootboxes e recompensas." data-category="economia"><div><code>/lootbox</code><button class="copy-command" type="button" data-copy="/lootbox" aria-label="Copiar comando /lootbox">⧉</button></div><p>Sistema de lootboxes e recompensas.</p></article><article class="command-card" data-command="manutencao economia manutenção de equipamentos e infraestrutura." data-category="economia"><div><code>/manutencao</code><button class="copy-command" type="button" data-copy="/manutencao" aria-label="Copiar comando /manutencao">⧉</button></div><p>Manutenção de equipamentos e infraestrutura.</p></article><article class="command-card" data-command="mercado economia mercado integrado de compra, venda e carteira." data-category="economia"><div><code>/mercado</code><button class="copy-command" type="button" data-copy="/mercado" aria-label="Copiar comando /mercado">⧉</button></div><p>Mercado integrado de compra, venda e carteira.</p></article><article class="command-card" data-command="minerar economia mineração e rendimento da infraestrutura." data-category="economia"><div><code>/minerar</code><button class="copy-command" type="button" data-copy="/minerar" aria-label="Copiar comando /minerar">⧉</button></div><p>Mineração e rendimento da infraestrutura.</p></article><article class="command-card" data-command="mochila economia itens portáteis e consumíveis." data-category="economia"><div><code>/mochila</code><button class="copy-command" type="button" data-copy="/mochila" aria-label="Copiar comando /mochila">⧉</button></div><p>Itens portáteis e consumíveis.</p></article><article class="command-card" data-command="perfil economia resumo da sua progressão e patrimônio." data-category="economia"><div><code>/perfil</code><button class="copy-command" type="button" data-copy="/perfil" aria-label="Copiar comando /perfil">⧉</button></div><p>Resumo da sua progressão e patrimônio.</p></article><article class="command-card" data-command="ranking economia rankings da economia." data-category="economia"><div><code>/ranking</code><button class="copy-command" type="button" data-copy="/ranking" aria-label="Copiar comando /ranking">⧉</button></div><p>Rankings da economia.</p></article><article class="command-card" data-command="rig economia monte e administre rigs." data-category="economia"><div><code>/rig</code><button class="copy-command" type="button" data-copy="/rig" aria-label="Copiar comando /rig">⧉</button></div><p>Monte e administre rigs.</p></article><article class="command-card" data-command="saldo economia consulte seu estado financeiro." data-category="economia"><div><code>/saldo</code><button class="copy-command" type="button" data-copy="/saldo" aria-label="Copiar comando /saldo">⧉</button></div><p>Consulte seu estado financeiro.</p></article><article class="command-card" data-command="servidor economia infraestrutura samycloud e rentabilidade." data-category="economia"><div><code>/servidor</code><button class="copy-command" type="button" data-copy="/servidor" aria-label="Copiar comando /servidor">⧉</button></div><p>Infraestrutura SamyCloud e rentabilidade.</p></article><article class="command-card" data-command="trabalhar economia trabalhos e progressão econômica." data-category="economia"><div><code>/trabalhar</code><button class="copy-command" type="button" data-copy="/trabalhar" aria-label="Copiar comando /trabalhar">⧉</button></div><p>Trabalhos e progressão econômica.</p></article></div></section><section class="command-category" data-category-section="eventos"><div class="category-title"><span class="category-icon">◷</span><div><h2>Eventos</h2><p>1 comando</p></div></div><div class="command-grid"><article class="command-card" data-command="evento eventos crie e administre eventos, inscrições e presença." data-category="eventos"><div><code>/evento</code><button class="copy-command" type="button" data-copy="/evento" aria-label="Copiar comando /evento">⧉</button></div><p>Crie e administre eventos, inscrições e presença.</p></article></div></section><section class="command-category" data-category-section="hardware"><div class="category-title"><span class="category-icon">▣</span><div><h2>Hardware</h2><p>10 comandos</p></div></div><div class="command-grid"><article class="command-card" data-command="bench hardware compare hardware e desempenho." data-category="hardware"><div><code>/bench</code><button class="copy-command" type="button" data-copy="/bench" aria-label="Copiar comando /bench">⧉</button></div><p>Compare hardware e desempenho.</p></article><article class="command-card" data-command="biosguard hardware analise compatibilidade e riscos de bios." data-category="hardware"><div><code>/biosguard</code><button class="copy-command" type="button" data-copy="/biosguard" aria-label="Copiar comando /biosguard">⧉</button></div><p>Analise compatibilidade e riscos de BIOS.</p></article><article class="command-card" data-command="buildlab hardware planeje builds e compatibilidade de componentes." data-category="hardware"><div><code>/buildlab</code><button class="copy-command" type="button" data-copy="/buildlab" aria-label="Copiar comando /buildlab">⧉</button></div><p>Planeje builds e compatibilidade de componentes.</p></article><article class="command-card" data-command="debloat hardware orientações de otimização e debloat." data-category="hardware"><div><code>/debloat</code><button class="copy-command" type="button" data-copy="/debloat" aria-label="Copiar comando /debloat">⧉</button></div><p>Orientações de otimização e debloat.</p></article><article class="command-card" data-command="jogosgratis hardware acompanhe jogos gratuitos." data-category="hardware"><div><code>/jogosgratis</code><button class="copy-command" type="button" data-copy="/jogosgratis" aria-label="Copiar comando /jogosgratis">⧉</button></div><p>Acompanhe jogos gratuitos.</p></article><article class="command-card" data-command="monitor hardware monitore preços e itens de interesse." data-category="hardware"><div><code>/monitor</code><button class="copy-command" type="button" data-copy="/monitor" aria-label="Copiar comando /monitor">⧉</button></div><p>Monitore preços e itens de interesse.</p></article><article class="command-card" data-command="pcdoctor hardware triagem técnica guiada para pcs." data-category="hardware"><div><code>/pcdoctor</code><button class="copy-command" type="button" data-copy="/pcdoctor" aria-label="Copiar comando /pcdoctor">⧉</button></div><p>Triagem técnica guiada para PCs.</p></article><article class="command-card" data-command="powercheck hardware analise fonte, consumo e conectores." data-category="hardware"><div><code>/powercheck</code><button class="copy-command" type="button" data-copy="/powercheck" aria-label="Copiar comando /powercheck">⧉</button></div><p>Analise fonte, consumo e conectores.</p></article><article class="command-card" data-command="promocoes hardware central de promoções com entrega resiliente." data-category="hardware"><div><code>/promocoes</code><button class="copy-command" type="button" data-copy="/promocoes" aria-label="Copiar comando /promocoes">⧉</button></div><p>Central de promoções com entrega resiliente.</p></article><article class="command-card" data-command="serverstatus hardware acompanhe status de serviços e endpoints." data-category="hardware"><div><code>/serverstatus</code><button class="copy-command" type="button" data-copy="/serverstatus" aria-label="Copiar comando /serverstatus">⧉</button></div><p>Acompanhe status de serviços e endpoints.</p></article></div></section><section class="command-category" data-category-section="integra-es"><div class="category-title"><span class="category-icon">⌁</span><div><h2>Integrações</h2><p>1 comando</p></div></div><div class="command-grid"><article class="command-card" data-command="integracoes integrações conectores controlados para github, rss e páginas de status." data-category="integra-es"><div><code>/integracoes</code><button class="copy-command" type="button" data-copy="/integracoes" aria-label="Copiar comando /integracoes">⧉</button></div><p>Conectores controlados para GitHub, RSS e páginas de status.</p></article></div></section><section class="command-category" data-category-section="log-stica"><div class="category-title"><span class="category-icon">◇</span><div><h2>Logística</h2><p>6 comandos</p></div></div><div class="command-grid"><article class="command-card" data-command="cotacao logística estimativas e cotações logísticas." data-category="log-stica"><div><code>/cotacao</code><button class="copy-command" type="button" data-copy="/cotacao" aria-label="Copiar comando /cotacao">⧉</button></div><p>Estimativas e cotações logísticas.</p></article><article class="command-card" data-command="declarar logística prepare informações de declaração com transparência." data-category="log-stica"><div><code>/declarar</code><button class="copy-command" type="button" data-copy="/declarar" aria-label="Copiar comando /declarar">⧉</button></div><p>Prepare informações de declaração com transparência.</p></article><article class="command-card" data-command="dimensoes logística calcule e organize dimensões de envio." data-category="log-stica"><div><code>/dimensoes</code><button class="copy-command" type="button" data-copy="/dimensoes" aria-label="Copiar comando /dimensoes">⧉</button></div><p>Calcule e organize dimensões de envio.</p></article><article class="command-card" data-command="importacao logística simule cenários de importação." data-category="log-stica"><div><code>/importacao</code><button class="copy-command" type="button" data-copy="/importacao" aria-label="Copiar comando /importacao">⧉</button></div><p>Simule cenários de importação.</p></article><article class="command-card" data-command="rastreio logística acompanhe rastreios configurados." data-category="log-stica"><div><code>/rastreio</code><button class="copy-command" type="button" data-copy="/rastreio" aria-label="Copiar comando /rastreio">⧉</button></div><p>Acompanhe rastreios configurados.</p></article><article class="command-card" data-command="taxa logística calcule taxas e alíquotas configuráveis." data-category="log-stica"><div><code>/taxa</code><button class="copy-command" type="button" data-copy="/taxa" aria-label="Copiar comando /taxa">⧉</button></div><p>Calcule taxas e alíquotas configuráveis.</p></article></div></section><section class="command-category" data-category-section="modera-o"><div class="category-title"><span class="category-icon">◆</span><div><h2>Moderação</h2><p>13 comandos</p></div></div><div class="command-grid"><article class="command-card" data-command="ban moderação fluxo de banimento com validação e auditoria." data-category="modera-o"><div><code>/ban</code><button class="copy-command" type="button" data-copy="/ban" aria-label="Copiar comando /ban">⧉</button></div><p>Fluxo de banimento com validação e auditoria.</p></article><article class="command-card" data-command="ban_massa moderação operação em lote com controles adicionais." data-category="modera-o"><div><code>/ban_massa</code><button class="copy-command" type="button" data-copy="/ban_massa" aria-label="Copiar comando /ban_massa">⧉</button></div><p>Operação em lote com controles adicionais.</p></article><article class="command-card" data-command="caso moderação gerencie casos de moderação." data-category="modera-o"><div><code>/caso</code><button class="copy-command" type="button" data-copy="/caso" aria-label="Copiar comando /caso">⧉</button></div><p>Gerencie casos de moderação.</p></article><article class="command-card" data-command="configurar moderação central administrativa e acesso ao samy guildos." data-category="modera-o"><div><code>/configurar</code><button class="copy-command" type="button" data-copy="/configurar" aria-label="Copiar comando /configurar">⧉</button></div><p>Central administrativa e acesso ao Samy GuildOS.</p></article><article class="command-card" data-command="historico moderação consulte histórico disciplinar." data-category="modera-o"><div><code>/historico</code><button class="copy-command" type="button" data-copy="/historico" aria-label="Copiar comando /historico">⧉</button></div><p>Consulte histórico disciplinar.</p></article><article class="command-card" data-command="kick moderação remoção moderativa com confirmação." data-category="modera-o"><div><code>/kick</code><button class="copy-command" type="button" data-copy="/kick" aria-label="Copiar comando /kick">⧉</button></div><p>Remoção moderativa com confirmação.</p></article><article class="command-card" data-command="limpar moderação limpeza inteligente de mensagens." data-category="modera-o"><div><code>/limpar</code><button class="copy-command" type="button" data-copy="/limpar" aria-label="Copiar comando /limpar">⧉</button></div><p>Limpeza inteligente de mensagens.</p></article><article class="command-card" data-command="lockdown moderação bloqueio persistente com restauração." data-category="modera-o"><div><code>/lockdown</code><button class="copy-command" type="button" data-copy="/lockdown" aria-label="Copiar comando /lockdown">⧉</button></div><p>Bloqueio persistente com restauração.</p></article><article class="command-card" data-command="mute moderação silenciamento moderativo." data-category="modera-o"><div><code>/mute</code><button class="copy-command" type="button" data-copy="/mute" aria-label="Copiar comando /mute">⧉</button></div><p>Silenciamento moderativo.</p></article><article class="command-card" data-command="nuke moderação operação crítica de recriação controlada." data-category="modera-o"><div><code>/nuke</code><button class="copy-command" type="button" data-copy="/nuke" aria-label="Copiar comando /nuke">⧉</button></div><p>Operação crítica de recriação controlada.</p></article><article class="command-card" data-command="postar moderação publicação administrativa guiada." data-category="modera-o"><div><code>/postar</code><button class="copy-command" type="button" data-copy="/postar" aria-label="Copiar comando /postar">⧉</button></div><p>Publicação administrativa guiada.</p></article><article class="command-card" data-command="trancar moderação controle de acesso de canais." data-category="modera-o"><div><code>/trancar</code><button class="copy-command" type="button" data-copy="/trancar" aria-label="Copiar comando /trancar">⧉</button></div><p>Controle de acesso de canais.</p></article><article class="command-card" data-command="warn moderação aplique advertências e registre evidências." data-category="modera-o"><div><code>/warn</code><button class="copy-command" type="button" data-copy="/warn" aria-label="Copiar comando /warn">⧉</button></div><p>Aplique advertências e registre evidências.</p></article></div></section><section class="command-category" data-category-section="privacidade"><div class="category-title"><span class="category-icon">◉</span><div><h2>Privacidade</h2><p>1 comando</p></div></div><div class="command-grid"><article class="command-card" data-command="privacidade privacidade consentimentos, exportação, retenção e exclusão de dados." data-category="privacidade"><div><code>/privacidade</code><button class="copy-command" type="button" data-copy="/privacidade" aria-label="Copiar comando /privacidade">⧉</button></div><p>Consentimentos, exportação, retenção e exclusão de dados.</p></article></div></section><section class="command-category" data-category-section="seguran-a"><div class="category-title"><span class="category-icon">⬡</span><div><h2>Segurança</h2><p>8 comandos</p></div></div><div class="command-grid"><article class="command-card" data-command="antiraid segurança configure e simule proteção antiraid." data-category="seguran-a"><div><code>/antiraid</code><button class="copy-command" type="button" data-copy="/antiraid" aria-label="Copiar comando /antiraid">⧉</button></div><p>Configure e simule proteção AntiRaid.</p></article><article class="command-card" data-command="automod segurança central de regras automod complementares." data-category="seguran-a"><div><code>/automod</code><button class="copy-command" type="button" data-copy="/automod" aria-label="Copiar comando /automod">⧉</button></div><p>Central de regras AutoMod complementares.</p></article><article class="command-card" data-command="incidente segurança gerencie incidentes e linha do tempo." data-category="seguran-a"><div><code>/incidente</code><button class="copy-command" type="button" data-copy="/incidente" aria-label="Copiar comando /incidente">⧉</button></div><p>Gerencie incidentes e linha do tempo.</p></article><article class="command-card" data-command="permissoes segurança audite permissões e riscos." data-category="seguran-a"><div><code>/permissoes</code><button class="copy-command" type="button" data-copy="/permissoes" aria-label="Copiar comando /permissoes">⧉</button></div><p>Audite permissões e riscos.</p></article><article class="command-card" data-command="quarentena segurança aplique quarentena reversível." data-category="seguran-a"><div><code>/quarentena</code><button class="copy-command" type="button" data-copy="/quarentena" aria-label="Copiar comando /quarentena">⧉</button></div><p>Aplique quarentena reversível.</p></article><article class="command-card" data-command="risco segurança avaliação explicável de risco." data-category="seguran-a"><div><code>/risco</code><button class="copy-command" type="button" data-copy="/risco" aria-label="Copiar comando /risco">⧉</button></div><p>Avaliação explicável de risco.</p></article><article class="command-card" data-command="seguranca segurança central de segurança e confiança." data-category="seguran-a"><div><code>/seguranca</code><button class="copy-command" type="button" data-copy="/seguranca" aria-label="Copiar comando /seguranca">⧉</button></div><p>Central de Segurança e Confiança.</p></article><article class="command-card" data-command="verificacao segurança fluxos de verificação e onboarding." data-category="seguran-a"><div><code>/verificacao</code><button class="copy-command" type="button" data-copy="/verificacao" aria-label="Copiar comando /verificacao">⧉</button></div><p>Fluxos de verificação e onboarding.</p></article></div></section><section class="command-category" data-category-section="sistemas"><div class="category-title"><span class="category-icon">⌘</span><div><h2>Sistemas</h2><p>7 comandos</p></div></div><div class="command-grid"><article class="command-card" data-command="conversor sistemas conversões técnicas e bases numéricas." data-category="sistemas"><div><code>/conversor</code><button class="copy-command" type="button" data-copy="/conversor" aria-label="Copiar comando /conversor">⧉</button></div><p>Conversões técnicas e bases numéricas.</p></article><article class="command-card" data-command="cron sistemas analise expressões cron de cinco campos." data-category="sistemas"><div><code>/cron</code><button class="copy-command" type="button" data-copy="/cron" aria-label="Copiar comando /cron">⧉</button></div><p>Analise expressões cron de cinco campos.</p></article><article class="command-card" data-command="docs sistemas documentação e acesso ao samy ai assistant." data-category="sistemas"><div><code>/docs</code><button class="copy-command" type="button" data-copy="/docs" aria-label="Copiar comando /docs">⧉</button></div><p>Documentação e acesso ao Samy AI Assistant.</p></article><article class="command-card" data-command="formatar sistemas formate e valide estruturas de texto/json." data-category="sistemas"><div><code>/formatar</code><button class="copy-command" type="button" data-copy="/formatar" aria-label="Copiar comando /formatar">⧉</button></div><p>Formate e valide estruturas de texto/JSON.</p></article><article class="command-card" data-command="readme sistemas ferramenta de apoio a readme e documentação." data-category="sistemas"><div><code>/readme</code><button class="copy-command" type="button" data-copy="/readme" aria-label="Copiar comando /readme">⧉</button></div><p>Ferramenta de apoio a README e documentação.</p></article><article class="command-card" data-command="regex sistemas teste regex em ambiente controlado." data-category="sistemas"><div><code>/regex</code><button class="copy-command" type="button" data-copy="/regex" aria-label="Copiar comando /regex">⧉</button></div><p>Teste regex em ambiente controlado.</p></article><article class="command-card" data-command="run sistemas execução controlada dentro dos limites do módulo." data-category="sistemas"><div><code>/run</code><button class="copy-command" type="button" data-copy="/run" aria-label="Copiar comando /run">⧉</button></div><p>Execução controlada dentro dos limites do módulo.</p></article></div></section><section class="command-category" data-category-section="tickets"><div class="category-title"><span class="category-icon">▤</span><div><h2>Tickets</h2><p>1 comando</p></div></div><div class="command-grid"><article class="command-card" data-command="tickets tickets central completa de atendimento, filas, sla e transcrições." data-category="tickets"><div><code>/tickets</code><button class="copy-command" type="button" data-copy="/tickets" aria-label="Copiar comando /tickets">⧉</button></div><p>Central completa de atendimento, filas, SLA e transcrições.</p></article></div></section><section class="command-category" data-category-section="utilidades"><div class="category-title"><span class="category-icon">✦</span><div><h2>Utilidades</h2><p>22 comandos</p></div></div><div class="command-grid"><article class="command-card" data-command="afk utilidades gerencie seu estado afk." data-category="utilidades"><div><code>/afk</code><button class="copy-command" type="button" data-copy="/afk" aria-label="Copiar comando /afk">⧉</button></div><p>Gerencie seu estado AFK.</p></article><article class="command-card" data-command="agenda utilidades acesse a central de eventos e agenda." data-category="utilidades"><div><code>/agenda</code><button class="copy-command" type="button" data-copy="/agenda" aria-label="Copiar comando /agenda">⧉</button></div><p>Acesse a central de Eventos e Agenda.</p></article><article class="command-card" data-command="avatar utilidades visualize avatares." data-category="utilidades"><div><code>/avatar</code><button class="copy-command" type="button" data-copy="/avatar" aria-label="Copiar comando /avatar">⧉</button></div><p>Visualize avatares.</p></article><article class="command-card" data-command="botinfo utilidades informações sobre a samy." data-category="utilidades"><div><code>/botinfo</code><button class="copy-command" type="button" data-copy="/botinfo" aria-label="Copiar comando /botinfo">⧉</button></div><p>Informações sobre a Samy.</p></article><article class="command-card" data-command="calculadora utilidades calculadora segura sem eval." data-category="utilidades"><div><code>/calculadora</code><button class="copy-command" type="button" data-copy="/calculadora" aria-label="Copiar comando /calculadora">⧉</button></div><p>Calculadora segura sem eval.</p></article><article class="command-card" data-command="cambio utilidades conversão de moedas." data-category="utilidades"><div><code>/cambio</code><button class="copy-command" type="button" data-copy="/cambio" aria-label="Copiar comando /cambio">⧉</button></div><p>Conversão de moedas.</p></article><article class="command-card" data-command="clima utilidades consulta de clima." data-category="utilidades"><div><code>/clima</code><button class="copy-command" type="button" data-copy="/clima" aria-label="Copiar comando /clima">⧉</button></div><p>Consulta de clima.</p></article><article class="command-card" data-command="color utilidades ferramentas de cor." data-category="utilidades"><div><code>/color</code><button class="copy-command" type="button" data-copy="/color" aria-label="Copiar comando /color">⧉</button></div><p>Ferramentas de cor.</p></article><article class="command-card" data-command="enquete utilidades crie enquetes." data-category="utilidades"><div><code>/enquete</code><button class="copy-command" type="button" data-copy="/enquete" aria-label="Copiar comando /enquete">⧉</button></div><p>Crie enquetes.</p></article><article class="command-card" data-command="help utilidades explore categorias e recursos." data-category="utilidades"><div><code>/help</code><button class="copy-command" type="button" data-copy="/help" aria-label="Copiar comando /help">⧉</button></div><p>Explore categorias e recursos.</p></article><article class="command-card" data-command="lembrete utilidades crie lembretes." data-category="utilidades"><div><code>/lembrete</code><button class="copy-command" type="button" data-copy="/lembrete" aria-label="Copiar comando /lembrete">⧉</button></div><p>Crie lembretes.</p></article><article class="command-card" data-command="notas utilidades notas privadas persistentes." data-category="utilidades"><div><code>/notas</code><button class="copy-command" type="button" data-copy="/notas" aria-label="Copiar comando /notas">⧉</button></div><p>Notas privadas persistentes.</p></article><article class="command-card" data-command="ping utilidades teste latência e resposta." data-category="utilidades"><div><code>/ping</code><button class="copy-command" type="button" data-copy="/ping" aria-label="Copiar comando /ping">⧉</button></div><p>Teste latência e resposta.</p></article><article class="command-card" data-command="qrcode utilidades gere qr codes." data-category="utilidades"><div><code>/qrcode</code><button class="copy-command" type="button" data-copy="/qrcode" aria-label="Copiar comando /qrcode">⧉</button></div><p>Gere QR Codes.</p></article><article class="command-card" data-command="serverinfo utilidades informações sobre a guild." data-category="utilidades"><div><code>/serverinfo</code><button class="copy-command" type="button" data-copy="/serverinfo" aria-label="Copiar comando /serverinfo">⧉</button></div><p>Informações sobre a guild.</p></article><article class="command-card" data-command="shorturl utilidades encurtamento de urls suportado." data-category="utilidades"><div><code>/shorturl</code><button class="copy-command" type="button" data-copy="/shorturl" aria-label="Copiar comando /shorturl">⧉</button></div><p>Encurtamento de URLs suportado.</p></article><article class="command-card" data-command="sorteio utilidades crie e administre sorteios." data-category="utilidades"><div><code>/sorteio</code><button class="copy-command" type="button" data-copy="/sorteio" aria-label="Copiar comando /sorteio">⧉</button></div><p>Crie e administre sorteios.</p></article><article class="command-card" data-command="temporizador utilidades temporizadores." data-category="utilidades"><div><code>/temporizador</code><button class="copy-command" type="button" data-copy="/temporizador" aria-label="Copiar comando /temporizador">⧉</button></div><p>Temporizadores.</p></article><article class="command-card" data-command="timestamp utilidades gere timestamps do discord." data-category="utilidades"><div><code>/timestamp</code><button class="copy-command" type="button" data-copy="/timestamp" aria-label="Copiar comando /timestamp">⧉</button></div><p>Gere timestamps do Discord.</p></article><article class="command-card" data-command="traduzir utilidades tradução utilitária." data-category="utilidades"><div><code>/traduzir</code><button class="copy-command" type="button" data-copy="/traduzir" aria-label="Copiar comando /traduzir">⧉</button></div><p>Tradução utilitária.</p></article><article class="command-card" data-command="userinfo utilidades informações sobre usuários." data-category="utilidades"><div><code>/userinfo</code><button class="copy-command" type="button" data-copy="/userinfo" aria-label="Copiar comando /userinfo">⧉</button></div><p>Informações sobre usuários.</p></article><article class="command-card" data-command="whois utilidades consulta contextual de usuários." data-category="utilidades"><div><code>/whois</code><button class="copy-command" type="button" data-copy="/whois" aria-label="Copiar comando /whois">⧉</button></div><p>Consulta contextual de usuários.</p></article></div></section><div class="empty-state" data-empty-state hidden><b>Nenhum comando encontrado.</b><span>Tente outro termo ou remova o filtro de categoria.</span></div></div>
+</div></section>
+<section class="section-pad"><div class="shell cta-card"><div><span class="eyebrow">Não quer decorar comandos?</span><h2>Comece pelo <code>/help</code>.</h2><p>A central de ajuda organiza os módulos disponíveis dentro do próprio Discord.</p></div><a class="btn btn-primary btn-lg" href="https://discord.com/oauth2/authorize?client_id=461634842296320000" target="_blank" rel="noopener">Adicionar a Samy ↗</a></div></section>
+</main><footer class="site-footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="index.html">
+        <img src="assets/samy-avatar.webp" alt="" width="42" height="42">
+        <span><b>Samy</b><small>Platform</small></span>
+      </a>
+      <p>Uma plataforma premium para administrar, proteger, automatizar e evoluir comunidades no Discord.</p>
+      <span class="temporary-note">Site temporário • Samy Web oficial em desenvolvimento separado</span>
+    </div>
+    <div class="footer-links-col"><b>Plataforma</b><a href="index.html#plataforma">Recursos</a><a href="comandos.html">100 comandos</a><a href="changelog.html">Roadmap</a></div>
+    <div class="footer-links-col"><b>Ajuda</b><a href="faq.html">FAQ</a><a href="https://discord.gg/haQPSP4EPR" target="_blank" rel="noopener">Suporte</a><a href="https://discord.com/oauth2/authorize?client_id=461634842296320000" target="_blank" rel="noopener">Adicionar ao Discord</a></div>
+    <div class="footer-links-col"><b>Legal</b><a href="https://github.com/carlosvcl/samy-bot-docs/blob/main/TERMOS_DE_SERVICO.md" target="_blank" rel="noopener">Termos de Serviço</a><a href="https://github.com/carlosvcl/samy-bot-docs/blob/main/POLITICA_DE_PRIVACIDADE.md" target="_blank" rel="noopener">Política de Privacidade</a></div>
+  </div>
+  <div class="shell footer-bottom"><span>© <span data-year></span> Samy • CarlosGomes</span><span>TypeScript • Discord.js v14 • MongoDB Atlas • Gemini AI</span></div>
+</footer>
+<button class="back-top" type="button" data-back-top aria-label="Voltar ao topo">↑</button>
+<div class="toast" role="status" aria-live="polite" data-toast></div></body></html>

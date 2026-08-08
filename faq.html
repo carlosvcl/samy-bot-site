@@ -1,129 +1,54 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - Samy Bot</title>
-    <meta name="description" content="Encontre respostas para as perguntas mais frequentes sobre o Samy Bot.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="assets/samy-logo.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-
-    <header>
-        <nav class="container navbar-samy">
-            <a href="index.html#home" class="logo-area">
-                <div class="logo-image-wrapper">
-                    <img src="assets/samy-logo.png" alt="Logo Samy Bot" class="logo-img">
-                </div>
-                <span class="logo-text">Samy Bot</span>
-            </a>
-            <ul class="nav-links-samy">
-                <li><a href="index.html#home">Início</a></li>
-                <li><a href="index.html#features">Funcionalidades</a></li>
-                <li><a href="comandos.html">Comandos</a></li>
-                <li><a href="index.html#getting-started">Primeiros Passos</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="changelog.html">Atualizações</a></li>
-                <li><a href="index.html#support">Suporte</a></li>
-                <li><a href="https://discord.gg/haQPSP4EPR" class="btn btn-primary nav-cta" target="_blank">Adicionar ao Discord</a></li>
-            </ul>
-            <button class="mobile-menu-button" aria-label="Abrir Menu" aria-expanded="false">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
-
-    <main>
-        <section class="page-title-section section-bg-alt">
-            <div class="container">
-                <h1><i class="fas fa-question-circle"></i> Perguntas Frequentes (FAQ)</h1>
-                <p>Tire suas dúvidas mais comuns sobre o Samy Bot.</p>
-            </div>
-        </section>
-
-        <section id="faq-list" class="faq-section">
-            <div class="container">
-                <div class="faq-item">
-                    <details>
-                        <summary class="faq-question">Como adiciono o Samy Bot ao meu servidor?</summary>
-                        <p class="faq-answer">
-                            É muito simples! Basta clicar no botão "Adicionar ao Discord" presente no topo desta página ou <a href="[SEU_LINK_DE_CONVITE_DO_BOT_DIRETO_AQUI]" target="_blank">clicando aqui</a>.
-                            Você precisará ter permissão de "Gerenciar Servidor" no servidor Discord para onde deseja adicioná-lo. Após clicar, selecione o servidor desejado na lista e clique em "Autorizar".
-                        </p>
-                    </details>
-                </div>
-
-                <div class="faq-item">
-                    <details>
-                        <summary class="faq-question">Qual é o prefixo padrão do Samy Bot?</summary>
-                        <p class="faq-answer">
-                            O prefixo padrão do Samy Bot é <code>s!</code>. Por exemplo, para ver seu saldo, você digitaria <code>s!balance</code>.
-                            Se você for administrador do servidor, pode alterar o prefixo usando o comando <code>s!setprefix [novo prefixo]</code>. Por exemplo, <code>s!setprefix !</code> mudaria o prefixo para <code>!</code>.
-                        </p>
-                    </details>
-                </div>
-
-                <div class="faq-item">
-                    <details>
-                        <summary class="faq-question">O Samy Bot é gratuito?</summary>
-                        <p class="faq-answer">
-                            Sim, a grande maioria das funcionalidades do Samy Bot é totalmente gratuita! Oferecemos uma experiência completa sem custos.
-                            No momento, todas as funcionalidades são gratuitas.
-                        </p>
-                    </details>
-                </div>
-
-                <div class="faq-item">
-                    <details>
-                        <summary class="faq-question">Como posso ver todos os comandos disponíveis?</summary>
-                        <p class="faq-answer">
-                            Você pode digitar <code>s!help</code> no seu servidor Discord para uma lista de todas as categorias de comandos. Para informações detalhadas sobre cada comando, visite nossa <a href="comandos.html">Página de Comandos</a>.
-                            Se quiser saber sobre um comando específico, use <code>s!help [nome do comando]</code>.
-                        </p>
-                    </details>
-                </div>
-
-                <div class="faq-item">
-                    <details>
-                        <summary class="faq-question">O bot parece estar offline ou não responde. O que devo fazer?</summary>
-                        <p class="faq-answer">
-                            Primeiro, verifique se o Discord está passando por alguma instabilidade geral. Você pode checar a <a href="https://discordstatus.com/" target="_blank">página de status do Discord</a>.
-                            Se o Discord estiver normal, pode ser uma instabilidade momentânea do bot ou uma manutenção. Aguarde alguns minutos e tente novamente.
-                            Se o problema persistir, por favor, entre no nosso <a href="[LINK_DO_SEU_SERVIDOR_DE_SUPORTE]" target="_blank">servidor de suporte no Discord</a> e nos avise no canal apropriado.
-                            </p>
-                    </details>
-                </div>
-
-                <div class="faq-item">
-                    <details>
-                        <summary class="faq-question">Como reporto um bug ou sugiro uma nova funcionalidade?</summary>
-                        <p class="faq-answer">
-                            Adoraríamos ouvir seu feedback! A melhor maneira de reportar bugs ou sugerir novas ideias é através do nosso <a href="[LINK_DO_SEU_SERVIDOR_DE_SUPORTE]" target="_blank">servidor de suporte no Discord</a>.
-                            Temos canais dedicados para <code>#bugs</code> e <code>#sugestões</code>. Quanto mais detalhes você fornecer sobre um bug (como reproduzi-lo, prints, etc.), mais rápido poderemos corrigi-lo.
-                        </p>
-                    </details>
-                </div>
-                </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="index.html#home">Início</a> |
-                <a href="comandos.html">Comandos</a> |
-                <a href="faq.html">FAQ</a> |
-                <a href="changelog.html">Atualizações</a> |
-                <a href="https://github.com/carlosvcl/samy-bot-docs/blob/main/TERMOS_DE_SERVICO.md" target="_blank">Termos de Serviço</a> |
-                <a href="https://github.com/carlosvcl/samy-bot-docs/blob/main/POLITICA_DE_PRIVACIDADE.md" target="_blank">Política de Privacidade</a>
-            </div>
-            <p class="footer-copyright">&copy; <span id="currentYear"></span> Samy Bot & CarlosGomes#2263. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080910">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script><title>FAQ — Samy Platform</title><meta name="description" content="Perguntas frequentes sobre Samy, GuildOS, IA, privacidade, backups e segurança."></head><body><div class="ambient ambient-b"></div><div class="grid-overlay"></div><header class="site-header" data-header>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="shell nav-shell">
+    <a class="brand" href="index.html" aria-label="Samy — página inicial">
+      <img src="assets/samy-avatar.webp" alt="" width="42" height="42">
+      <span><b>Samy</b><small>Platform</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="index.html#plataforma">Plataforma</a>
+      <a href="comandos.html">Comandos</a>
+      <a href="faq.html">FAQ</a>
+      <a href="changelog.html">Atualizações</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-ghost btn-sm hide-mobile" href="https://discord.gg/haQPSP4EPR" target="_blank" rel="noopener">Suporte</a>
+      <a class="btn btn-primary btn-sm hide-mobile" href="https://discord.com/oauth2/authorize?client_id=461634842296320000" target="_blank" rel="noopener">Adicionar</a>
+      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Navegação mobile">
+    <a href="index.html">Início</a>
+    <a href="index.html#plataforma">Plataforma</a>
+    <a href="comandos.html">Comandos</a>
+    <a href="faq.html">FAQ</a>
+    <a href="changelog.html">Atualizações</a>
+    <a href="https://discord.gg/haQPSP4EPR" target="_blank" rel="noopener">Servidor de suporte</a>
+    <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=461634842296320000" target="_blank" rel="noopener">Adicionar ao Discord</a>
+  </nav>
+</header><main id="conteudo"><section class="page-hero"><div class="shell"><div class="eyebrow">Central de dúvidas</div><h1>Perguntas frequentes,<br><span class="gradient-text">respostas sem enrolação.</span></h1><p>Entenda o que a Samy faz, como protege operações críticas e qual é a diferença entre o mini site atual e o futuro Samy Web.</p></div></section><section class="faq-section"><div class="shell faq-layout"><aside class="faq-aside"><span class="eyebrow">Precisa de ajuda?</span><h2>Não encontrou sua dúvida?</h2><p>O servidor de suporte é o canal indicado para dúvidas, incidentes e feedback.</p><a class="btn btn-primary" href="https://discord.gg/haQPSP4EPR" target="_blank" rel="noopener">Abrir suporte ↗</a></aside><div class="faq-list"><details class="faq-item" open><summary><span>O que é a Samy?</span><i>+</i></summary><div class="faq-answer"><p>A Samy é uma plataforma multifuncional para Discord. Ela reúne administração, segurança, moderação, GuildOS, inteligência contextual, economia, música, tickets, eventos, analytics, automações, integrações e utilidades em experiências guiadas.</p></div></details><details class="faq-item" ><summary><span>A Samy usa prefixo como s!?</span><i>+</i></summary><div class="faq-answer"><p>Não. A experiência atual utiliza Slash Commands, como /help, /configurar e /seguranca. O prefixo legado foi aposentado.</p></div></details><details class="faq-item" ><summary><span>O que é o Samy GuildOS?</span><i>+</i></summary><div class="faq-answer"><p>É a camada de administração premium da guild. Ela permite preparar blueprints, analisar permissões, criar snapshots, organizar Change Sets, aplicar mudanças com validação e executar rollback quando necessário.</p></div></details><details class="faq-item" ><summary><span>A Samy pode criar a estrutura de um servidor?</span><i>+</i></summary><div class="faq-answer"><p>Sim. O GuildOS já trabalha com blueprints e operações fechadas para estruturar categorias, canais e cargos. Mudanças passam por preview, validação e snapshot antes da aplicação. A expansão 10.10–10.20 pretende ampliar isso para arquiteturas maiores.</p></div></details><details class="faq-item" ><summary><span>Backup e restore podem apagar meu servidor inteiro?</span><i>+</i></summary><div class="faq-answer"><p>O restore foi desenhado de forma conservadora. Ele pode trabalhar por escopo e evita reaplicar cegamente permissões administrativas ou executar alterações destrutivas sem validação.</p></div></details><details class="faq-item" ><summary><span>O que é dupla aprovação?</span><i>+</i></summary><div class="faq-answer"><p>É uma proteção de governança para operações críticas. Quando a política está ativa, uma mudança pode exigir aprovação de outro administrador autorizado, evitando que o próprio solicitante confirme sozinho uma operação sensível.</p></div></details><details class="faq-item" ><summary><span>A inteligência artificial pode banir usuários ou alterar dinheiro sozinha?</span><i>+</i></summary><div class="faq-answer"><p>Não. IA pode explicar, resumir e consultar ferramentas autorizadas, mas ações críticas de segurança, moderação, economia e administração permanecem subordinadas a regras determinísticas e controles explícitos.</p></div></details><details class="faq-item" ><summary><span>A Samy armazena tudo o que as pessoas conversam?</span><i>+</i></summary><div class="faq-answer"><p>Não é essa a proposta. A plataforma possui controles de privacidade, retenção e consentimento. A memória contextual de IA é tratada como recurso opcional e isolado por guild.</p></div></details><details class="faq-item" ><summary><span>Quantos comandos a Samy possui?</span><i>+</i></summary><div class="faq-answer"><p>O catálogo validado atualmente possui 100 Slash Commands. A plataforma evita aumentar o número apenas por aumentar: novas funções são preferencialmente adicionadas dentro de painéis e centrais existentes.</p></div></details><details class="faq-item" ><summary><span>O que são workers e feature flags?</span><i>+</i></summary><div class="faq-answer"><p>Workers são processos internos que executam ciclos como backups, saúde, filas e avaliações. Feature flags são interruptores controlados que permitem habilitar, limitar ou desligar módulos sem colocar toda a Samy em manutenção.</p></div></details><details class="faq-item" ><summary><span>Recursos automáticos vêm ativados por padrão?</span><i>+</i></summary><div class="faq-answer"><p>A política Safe by Default está sendo aprofundada para a expansão 10.10–10.20. O objetivo é que recursos opcionais, automáticos ou persistentes em novas guilds exijam opt-in explícito, preservando configurações já escolhidas em servidores existentes.</p></div></details><details class="faq-item" ><summary><span>Este é o Samy Web oficial?</span><i>+</i></summary><div class="faq-answer"><p>Não. Este é um mini site temporário para apresentar a plataforma enquanto o Samy Web oficial é desenvolvido separadamente. O bot prepara contratos e integrações sem misturar os dois projetos.</p></div></details><details class="faq-item" ><summary><span>Como recebo ajuda?</span><i>+</i></summary><div class="faq-answer"><p>Entre no servidor de suporte pelo botão disponível no site. Ao relatar um problema, envie o comando/módulo afetado, comportamento esperado, comportamento observado e logs sem tokens, chaves ou dados sensíveis.</p></div></details></div></div></section></main><footer class="site-footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="index.html">
+        <img src="assets/samy-avatar.webp" alt="" width="42" height="42">
+        <span><b>Samy</b><small>Platform</small></span>
+      </a>
+      <p>Uma plataforma premium para administrar, proteger, automatizar e evoluir comunidades no Discord.</p>
+      <span class="temporary-note">Site temporário • Samy Web oficial em desenvolvimento separado</span>
+    </div>
+    <div class="footer-links-col"><b>Plataforma</b><a href="index.html#plataforma">Recursos</a><a href="comandos.html">100 comandos</a><a href="changelog.html">Roadmap</a></div>
+    <div class="footer-links-col"><b>Ajuda</b><a href="faq.html">FAQ</a><a href="https://discord.gg/haQPSP4EPR" target="_blank" rel="noopener">Suporte</a><a href="https://discord.com/oauth2/authorize?client_id=461634842296320000" target="_blank" rel="noopener">Adicionar ao Discord</a></div>
+    <div class="footer-links-col"><b>Legal</b><a href="https://github.com/carlosvcl/samy-bot-docs/blob/main/TERMOS_DE_SERVICO.md" target="_blank" rel="noopener">Termos de Serviço</a><a href="https://github.com/carlosvcl/samy-bot-docs/blob/main/POLITICA_DE_PRIVACIDADE.md" target="_blank" rel="noopener">Política de Privacidade</a></div>
+  </div>
+  <div class="shell footer-bottom"><span>© <span data-year></span> Samy • CarlosGomes</span><span>TypeScript • Discord.js v14 • MongoDB Atlas • Gemini AI</span></div>
+</footer>
+<button class="back-top" type="button" data-back-top aria-label="Voltar ao topo">↑</button>
+<div class="toast" role="status" aria-live="polite" data-toast></div></body></html>

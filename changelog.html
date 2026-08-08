@@ -1,128 +1,54 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atualizações (Changelog) - Samy Bot</title>
-    <meta name="description" content="Confira as últimas atualizações, novos recursos e correções de bugs do Samy Bot.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="assets/samy-logo.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-
-    <header>
-        <nav class="container navbar-samy">
-            <a href="index.html#home" class="logo-area">
-                <div class="logo-image-wrapper">
-                    <img src="assets/samy-logo.png" alt="Logo Samy Bot" class="logo-img">
-                </div>
-                <span class="logo-text">Samy Bot</span>
-            </a>
-            <ul class="nav-links-samy">
-                <li><a href="index.html#home">Início</a></li>
-                <li><a href="index.html#features">Funcionalidades</a></li>
-                <li><a href="comandos.html">Comandos</a></li>
-                <li><a href="index.html#getting-started">Primeiros Passos</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="changelog.html">Atualizações</a></li>
-                <li><a href="index.html#support">Suporte</a></li>
-                <li><a href="https://discord.gg/haQPSP4EPR" class="btn btn-primary nav-cta" target="_blank">Adicionar ao Discord</a></li>
-            </ul>
-            <button class="mobile-menu-button" aria-label="Abrir Menu" aria-expanded="false">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
-
-    <main>
-        <section class="page-title-section section-bg-alt">
-            <div class="container">
-                <h1><i class="fas fa-history"></i> Histórico de Atualizações</h1>
-                <p>Fique por dentro de todas as novidades e melhorias do Samy Bot.</p>
-            </div>
-        </section>
-
-        <section id="changelog-list" class="changelog-section">
-            <div class="container">
-
-                <article class="changelog-entry">
-                    <header class="changelog-header">
-                        <h3 class="changelog-version"><i class="fas fa-tag"></i> Versão 1.2.0</h3>
-                        <time class="changelog-date" datetime="2025-05-28">28 de Maio de 2025</time>
-                    </header>
-                    <div class="changelog-details">
-                        <h4><i class="fas fa-plus-circle icon-added"></i> Novas Funcionalidades:</h4>
-                        <ul>
-                            <li>Adicionado novo módulo de Jogos com os comandos <code>s!ppt</code> (Pedra, Papel, Tesoura) e <code>s!coinflip</code>.</li>
-                            <li>Sistema de Inteligência Artificial aprimorado com respostas mais rápidas.</li>
-                            <li>Comando <code>s!rank</code> agora mostra um card de rank personalizado.</li>
-                        </ul>
-                        <h4><i class="fas fa-cogs icon-improved"></i> Melhorias:</h4>
-                        <ul>
-                            <li>Otimização no comando <code>s!play</code> para carregar músicas mais rapidamente.</li>
-                            <li>Interface da loja (<code>s!shop</code>) refeita para melhor navegação.</li>
-                        </ul>
-                        <h4><i class="fas fa-bug icon-fixed"></i> Correções de Bugs:</h4>
-                        <ul>
-                            <li>Corrigido um bug onde o comando <code>s!daily</code> podia ser usado múltiplas vezes.</li>
-                            <li>Resolvido problema de permissão no comando <code>s!kick</code>.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="changelog-entry">
-                    <header class="changelog-header">
-                        <h3 class="changelog-version"><i class="fas fa-tag"></i> Versão 1.1.5</h3>
-                        <time class="changelog-date" datetime="2025-05-15">15 de Maio de 2025</time>
-                    </header>
-                    <div class="changelog-details">
-                        <h4><i class="fas fa-cogs icon-improved"></i> Melhorias:</h4>
-                        <ul>
-                            <li>Aumento da estabilidade geral do bot.</li>
-                            <li>Melhoria na tradução de alguns comandos para PT-BR.</li>
-                        </ul>
-                        <h4><i class="fas fa-bug icon-fixed"></i> Correções de Bugs:</h4>
-                        <ul>
-                            <li>Corrigido um erro que impedia a coleta de <code>s!collectincome</code> em alguns casos.</li>
-                            <li>Pequenas correções na formatação de mensagens de erro.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="changelog-entry">
-                    <header class="changelog-header">
-                        <h3 class="changelog-version"><i class="fas fa-rocket icon-launched"></i> Versão 1.0.0 - Lançamento!</h3>
-                        <time class="changelog-date" datetime="2025-04-30">30 de Abril de 2025</time>
-                    </header>
-                    <div class="changelog-details">
-                        <h4><i class="fas fa-star icon-added"></i> Lançamento Oficial do Samy Bot!</h4>
-                        <ul>
-                            <li>Módulos iniciais: Economia, Moderação Básica, Música (YouTube), Utilidades.</li>
-                            <li>Suporte inicial em Português.</li>
-                            <li>Site de apresentação lançado!</li>
-                        </ul>
-                    </div>
-                </article>
-                </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="index.html#home">Início</a> |
-                <a href="comandos.html">Comandos</a> |
-                <a href="faq.html">FAQ</a> |
-                <a href="changelog.html">Atualizações</a> |
-                <a href="https://github.com/carlosvcl/samy-bot-docs/blob/main/TERMOS_DE_SERVICO.md" target="_blank">Termos de Serviço</a> |
-                <a href="https://github.com/carlosvcl/samy-bot-docs/blob/main/POLITICA_DE_PRIVACIDADE.md" target="_blank">Política de Privacidade</a>
-            </div>
-            <p class="footer-copyright">&copy; <span id="currentYear"></span> Samy Bot & CarlosGomes#2263. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080910">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script><title>Atualizações — Samy Platform</title><meta name="description" content="Evolução recente da Samy: Nexus, Intelligence, GuildOS e próximos passos."></head><body><div class="ambient ambient-a"></div><div class="grid-overlay"></div><header class="site-header" data-header>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="shell nav-shell">
+    <a class="brand" href="index.html" aria-label="Samy — página inicial">
+      <img src="assets/samy-avatar.webp" alt="" width="42" height="42">
+      <span><b>Samy</b><small>Platform</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="index.html#plataforma">Plataforma</a>
+      <a href="comandos.html">Comandos</a>
+      <a href="faq.html">FAQ</a>
+      <a href="changelog.html">Atualizações</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-ghost btn-sm hide-mobile" href="https://discord.gg/haQPSP4EPR" target="_blank" rel="noopener">Suporte</a>
+      <a class="btn btn-primary btn-sm hide-mobile" href="https://discord.com/oauth2/authorize?client_id=461634842296320000" target="_blank" rel="noopener">Adicionar</a>
+      <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Navegação mobile">
+    <a href="index.html">Início</a>
+    <a href="index.html#plataforma">Plataforma</a>
+    <a href="comandos.html">Comandos</a>
+    <a href="faq.html">FAQ</a>
+    <a href="changelog.html">Atualizações</a>
+    <a href="https://discord.gg/haQPSP4EPR" target="_blank" rel="noopener">Servidor de suporte</a>
+    <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=461634842296320000" target="_blank" rel="noopener">Adicionar ao Discord</a>
+  </nav>
+</header><main id="conteudo"><section class="page-hero"><div class="shell"><div class="eyebrow">Histórico de evolução</div><h1>Uma plataforma em <span class="gradient-text">evolução contínua.</span></h1><p>Veja os marcos recentes que transformaram a Samy em uma plataforma operacional, inteligente e administrável.</p></div></section><section class="changelog-section"><div class="shell"><div class="change-timeline"><article class="change-entry current"><div class="change-marker"></div><div class="change-meta"><span>1.9.0</span><time>08 ago 2026</time></div><div class="change-body"><h2>Mega Fase 10 — Samy GuildOS</h2><ul><li>GuildOS 10.0–10.9 com Configuration Control Plane, Setup Wizard e seis blueprints seguros.</li><li>Permission Intelligence determinística para hierarquia e overwrites perigosos.</li><li>Backup & Restore versionados, Change Sets, snapshot pré-mudança e rollback.</li><li>Enterprise Governance com RBAC e dupla aprovação para operações críticas.</li><li>29 workers, 56 feature flags e 100 Slash Commands preservados.</li><li>check:phase10 validado com regressão da Fase 9, test:mega e build.</li></ul></div></article><article class="change-entry done"><div class="change-marker"></div><div class="change-meta"><span>1.8.0</span><time>07 ago 2026</time></div><div class="change-body"><h2>Mega Fase 9 — Samy Intelligence</h2><ul><li>AI Foundation centralizada com provider, cache, retry, circuit breaker e backpressure.</li><li>Knowledge Engine por guild e Samy AI Assistant integrado ao /docs.</li><li>Guild Intelligence, memória consentida, guardrails e ferramentas fechadas.</li><li>AI Operations no /dashboard e quatro novos workers de inteligência.</li></ul></div></article><article class="change-entry done"><div class="change-marker"></div><div class="change-meta"><span>Nexus</span><time>2026</time></div><div class="change-body"><h2>Mega Fase 8 — Samy Nexus</h2><ul><li>Music Platform com centrais persistentes, fila, recuperação e controle de inatividade.</li><li>Stream de áudio estabilizado com yt-dlp/youtube-dl-exec, FFmpeg e Opus.</li><li>Resiliência de workers, sessões persistentes, observabilidade e expansão dos módulos premium.</li></ul></div></article><article class="change-entry next"><div class="change-marker"></div><div class="change-meta"><span>Próxima</span><time>Planejada</time></div><div class="change-body"><h2>GuildOS Ultra / Enterprise 10.10–10.20</h2><ul><li>Safe Defaults Audit global para recursos opcionais e automáticos.</li><li>Blueprint Studio 2.0 e Large Server Architect.</li><li>Role Architecture Engine, Channel Architecture Engine e Onboarding Builder.</li><li>Backup & Disaster Recovery 2.0 e Change Sets em etapas.</li><li>Revisão completa do ZIP e migração segura sem desligar escolhas explícitas de guilds existentes.</li></ul></div></article></div></div></section><section class="section-pad"><div class="shell roadmap-note"><div><span class="eyebrow">Visão futura</span><h2>Depois do GuildOS Ultra: HyperCore.</h2><p>A Fase 11 é apenas roadmap conceitual e deve entrar depois da evolução e homologação completas do GuildOS.</p></div><div class="roadmap-tags"><span>Multi-node</span><span>Sharding</span><span>Failover</span><span>Quotas</span><span>Zero-downtime</span></div></div></section></main><footer class="site-footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="index.html">
+        <img src="assets/samy-avatar.webp" alt="" width="42" height="42">
+        <span><b>Samy</b><small>Platform</small></span>
+      </a>
+      <p>Uma plataforma premium para administrar, proteger, automatizar e evoluir comunidades no Discord.</p>
+      <span class="temporary-note">Site temporário • Samy Web oficial em desenvolvimento separado</span>
+    </div>
+    <div class="footer-links-col"><b>Plataforma</b><a href="index.html#plataforma">Recursos</a><a href="comandos.html">100 comandos</a><a href="changelog.html">Roadmap</a></div>
+    <div class="footer-links-col"><b>Ajuda</b><a href="faq.html">FAQ</a><a href="https://discord.gg/haQPSP4EPR" target="_blank" rel="noopener">Suporte</a><a href="https://discord.com/oauth2/authorize?client_id=461634842296320000" target="_blank" rel="noopener">Adicionar ao Discord</a></div>
+    <div class="footer-links-col"><b>Legal</b><a href="https://github.com/carlosvcl/samy-bot-docs/blob/main/TERMOS_DE_SERVICO.md" target="_blank" rel="noopener">Termos de Serviço</a><a href="https://github.com/carlosvcl/samy-bot-docs/blob/main/POLITICA_DE_PRIVACIDADE.md" target="_blank" rel="noopener">Política de Privacidade</a></div>
+  </div>
+  <div class="shell footer-bottom"><span>© <span data-year></span> Samy • CarlosGomes</span><span>TypeScript • Discord.js v14 • MongoDB Atlas • Gemini AI</span></div>
+</footer>
+<button class="back-top" type="button" data-back-top aria-label="Voltar ao topo">↑</button>
+<div class="toast" role="status" aria-live="polite" data-toast></div></body></html>

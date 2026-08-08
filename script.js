@@ -1,136 +1,119 @@
-document.addEventListener('DOMContentLoaded', function() {
 
-    // Script para navegação suave e marcar link ativo na navbar
-    const navLinksForScroll = document.querySelectorAll('.nav-links-samy a[href*="#"], .logo-area[href*="#"]');
-    navLinksForScroll.forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            const targetId = href.substring(href.lastIndexOf('#'));
-            // Determina a página alvo a partir do href (ex: "index.html", "comandos.html")
-            let targetPage = href.substring(0, href.lastIndexOf('#'));
-            if (targetPage === "") { // Se não houver #, pode ser um link direto de página ou um link só com #
-                targetPage = href.includes('#') ? (window.location.pathname.split('/').pop() || 'index.html') : href.split('/').pop();
-            } else {
-                targetPage = targetPage.split('/').pop();
-            }
+(() => {
+  const $ = (sel, ctx=document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx=document) => [...ctx.querySelectorAll(sel)];
+  const header = $('[data-header]');
+  const menuButton = $('[data-menu-button]');
+  const mobileMenu = $('[data-mobile-menu]');
+  const backTop = $('[data-back-top]');
+  const toast = $('[data-toast]');
 
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const setHeader = () => {
+    header?.classList.toggle('scrolled', window.scrollY > 16);
+    backTop?.classList.toggle('show', window.scrollY > 650);
+  };
+  setHeader();
+  window.addEventListener('scroll', setHeader, { passive: true });
 
-            // Se o link é para uma seção na página atual
-            if (targetPage === currentPage && document.querySelector(targetId)) {
-                e.preventDefault();
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            }
-            // Para links para outras páginas com hash (ex: index.html#features vindo de comandos.html),
-            // o comportamento padrão do navegador irá para a página e tentará rolar.
-            // Apenas removemos 'active' dos links da página atual.
-            // O 'active' no link da nova página será definido no carregamento da nova página.
-            document.querySelectorAll('.nav-links-samy a').forEach(link => link.classList.remove('active'));
-            // Não adicionamos 'active' aqui, pois a lógica de carregamento da página cuidará disso.
-        });
+  if (menuButton && mobileMenu) {
+    const closeMenu = () => {
+      menuButton.setAttribute('aria-expanded','false');
+      mobileMenu.classList.remove('open');
+      document.body.classList.remove('menu-open');
+    };
+    menuButton.addEventListener('click', () => {
+      const open = menuButton.getAttribute('aria-expanded') !== 'true';
+      menuButton.setAttribute('aria-expanded', String(open));
+      mobileMenu.classList.toggle('open', open);
+      document.body.classList.toggle('menu-open', open);
     });
+    $$('a', mobileMenu).forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+  }
 
-    // Script para marcar link ativo na navbar baseado no scroll (APENAS PARA index.html)
-    if (window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html')) {
-        const sections = document.querySelectorAll("main section[id]");
-        const navLi = document.querySelectorAll(".nav-links-samy li a");
+  $$('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
+  backTop?.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-        if (sections.length > 0 && navLi.length > 0) { // Garante que os elementos existem
-            window.addEventListener("scroll", () => {
-                let current = "home"; // Default to home
-                sections.forEach((section) => {
-                    const sectionTop = section.offsetTop;
-                    if (pageYOffset >= sectionTop - 150) { // 150 é um offset
-                        current = section.getAttribute("id");
-                    }
-                });
+  // Mark current page in desktop navigation.
+  const file = location.pathname.split('/').pop() || 'index.html';
+  $$('.desktop-nav a').forEach(a => {
+    const target = (a.getAttribute('href') || '').split('#')[0] || 'index.html';
+    if (target === file && !(file === 'index.html' && a.getAttribute('href')?.includes('#'))) a.classList.add('active');
+  });
 
-                navLi.forEach((a) => {
-                    a.classList.remove("active");
-                    const linkHref = a.getAttribute("href");
-                    if (linkHref === "index.html#" + current || linkHref === "#" + current) {
-                        a.classList.add("active");
-                    }
-                });
-                 // Se estiver no topo da página e nenhuma seção "current" for definida (exceto home), marca Início
-                if (window.pageYOffset < (sections[0].offsetTop - 150) ) {
-                    navLi.forEach(a => a.classList.remove("active")); // Remove active de todos
-                    const homeLink = document.querySelector('.nav-links-samy a[href*="#home"]');
-                    if (homeLink && (homeLink.getAttribute('href') === 'index.html#home' || homeLink.getAttribute('href') === '#home')) {
-                        homeLink.classList.add('active');
-                    }
-                }
-            });
-            // Aciona uma vez no carregamento para o estado inicial
-             window.dispatchEvent(new Event('scroll'));
-        }
-    }
+  // Reveal on scroll.
+  const reveal = $$('.reveal');
+  reveal.forEach(el => { const delay = Number(el.dataset.delay || 0); if (delay) el.style.transitionDelay = `${delay}ms`; });
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const io = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); }
+    }), {threshold:.08, rootMargin:'0px 0px -30px'});
+    reveal.forEach(el => io.observe(el));
+  } else reveal.forEach(el => el.classList.add('visible'));
 
+  const showToast = (message) => {
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(showToast.timer);
+    showToast.timer = setTimeout(() => toast.classList.remove('show'), 1600);
+  };
 
-    // Atualizar ano no footer
-    const currentYearElement = document.getElementById('currentYear');
-    if (currentYearElement) {
-        currentYearElement.textContent = new Date().getFullYear();
-    }
+  // Commands browser.
+  const search = $('[data-command-search]');
+  const chips = $$('[data-filter]');
+  const commandCards = $$('.command-card');
+  const categorySections = $$('[data-category-section]');
+  const count = $('[data-command-count]');
+  const empty = $('[data-empty-state]');
+  let activeFilter = 'all';
 
-    // Script para menu mobile
-    const mobileMenuButton = document.querySelector('.mobile-menu-button');
-    const navLinksSamy = document.querySelector('.nav-links-samy');
-
-    if (mobileMenuButton && navLinksSamy) {
-        mobileMenuButton.addEventListener('click', () => {
-            const isExpanded = navLinksSamy.classList.toggle('active');
-            mobileMenuButton.setAttribute('aria-expanded', isExpanded);
-            if (isExpanded) {
-                mobileMenuButton.innerHTML = '<i class="fas fa-times"></i>';
-            } else {
-                mobileMenuButton.innerHTML = '<i class="fas fa-bars"></i>';
-            }
-        });
-    }
-
-    // Marcar link ativo na navbar para a página atual (genérico para todas as páginas no carregamento)
-    const currentPageFull = window.location.pathname;
-    const currentPageFilename = currentPageFull.substring(currentPageFull.lastIndexOf('/') + 1) || 'index.html';
-    const navAnchors = document.querySelectorAll('.nav-links-samy a');
-
-    let homePageLinkActivated = false;
-    navAnchors.forEach(link => {
-        const linkHref = link.getAttribute('href');
-        let linkPageFilename = linkHref.split('#')[0];
-        if (linkPageFilename === "" && linkHref.startsWith("#")) { // Link interno tipo #features
-            linkPageFilename = 'index.html'; // Assumir que links internos são para index.html
-        }
-
-
-        if (linkPageFilename === currentPageFilename) {
-            if (currentPageFilename === 'index.html') {
-                // Para index.html, apenas ativa o link de início se não houver hash ou se for #home
-                // A lógica de scroll cuidará das seções.
-                if (linkHref === 'index.html#home' || linkHref === '#home' || linkHref === 'index.html' && window.location.hash === '' || window.location.hash === '#home') {
-                    link.classList.add('active');
-                    homePageLinkActivated = true;
-                } else {
-                    link.classList.remove('active');
-                }
-            } else {
-                link.classList.add('active'); // Para outras páginas, o link exato é ativado
-            }
-        } else {
-            link.classList.remove('active');
-        }
+  const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  const applyCommandFilter = () => {
+    if (!search) return;
+    const q = normalize(search.value.trim());
+    let visibleCount = 0;
+    commandCards.forEach(card => {
+      const matchesFilter = activeFilter === 'all' || card.dataset.category === activeFilter;
+      const matchesSearch = !q || normalize(card.dataset.command || '').includes(q);
+      const visible = matchesFilter && matchesSearch;
+      card.classList.toggle('hidden', !visible);
+      if (visible) visibleCount++;
     });
-    // Caso especial: se for index.html e nenhum link de seção estiver ativo (ex: no topo da página)
-    // e o link de inicio não foi ativado pela regra acima.
-    if (currentPageFilename === 'index.html' && !homePageLinkActivated && (window.location.hash === '' || window.location.hash === '#home')) {
-        const homeDirectLink = document.querySelector('.nav-links-samy a[href="index.html#home"]');
-        if (homeDirectLink) homeDirectLink.classList.add('active');
+    categorySections.forEach(section => {
+      const cards = $$('.command-card', section);
+      section.classList.toggle('hidden', !cards.some(card => !card.classList.contains('hidden')));
+    });
+    if (count) count.textContent = `${visibleCount} comando${visibleCount === 1 ? '' : 's'} encontrado${visibleCount === 1 ? '' : 's'}`;
+    if (empty) empty.hidden = visibleCount !== 0;
+  };
+  search?.addEventListener('input', applyCommandFilter);
+  chips.forEach(chip => chip.addEventListener('click', () => {
+    activeFilter = chip.dataset.filter;
+    chips.forEach(c => c.classList.toggle('active', c === chip));
+    applyCommandFilter();
+  }));
+  $('[data-clear-search]')?.addEventListener('click', () => {
+    if (search) search.value = '';
+    activeFilter = 'all';
+    chips.forEach(c => c.classList.toggle('active', c.dataset.filter === 'all'));
+    applyCommandFilter();
+    search?.focus();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === '/' && search && document.activeElement?.tagName !== 'INPUT' && document.activeElement?.tagName !== 'TEXTAREA') {
+      e.preventDefault(); search.focus();
     }
+  });
+  $$('.copy-command').forEach(button => button.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(button.dataset.copy || ''); showToast(`${button.dataset.copy} copiado`); }
+    catch { showToast('Não foi possível copiar automaticamente.'); }
+  }));
 
-
-});
+  // Keep only one FAQ detail open at a time on compact screens; remains accessible without JS.
+  const faqItems = $$('.faq-item');
+  faqItems.forEach(item => item.addEventListener('toggle', () => {
+    if (!item.open) return;
+    faqItems.forEach(other => { if (other !== item) other.open = false; });
+  }));
+})();
