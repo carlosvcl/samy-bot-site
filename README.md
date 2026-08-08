@@ -1,7 +1,7 @@
 # Samy — Plataforma Premium Multifuncional para Discord 🤖✨
 
 <p align="center">
-  <img src="samy-banner.png" alt="Banner oficial da Samy" width="900">
+  <img src="samy-banner.jpg" alt="Banner oficial da Samy" width="900">
 </p>
 
 <p align="center">
